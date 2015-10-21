@@ -9,8 +9,16 @@ import br.com.tdss.am.classea.entity.Reserva;
 
 public class QuartoBO {
 
-		public ArrayList<Quarto> buscarQuartoReservado(Reserva reserva){
+		public ArrayList<Quarto> buscarQuartoReservado(Reserva reserva) throws Exception{
 			QuartoDao quartoDao = DaoFactory.getQuartoDAO();
-			return null;
+			ArrayList<Quarto>  quartos = quartoDao.buscarQuartoReservado(reserva); 
+			return quartos;
+		
+		}
+		
+		public Quarto buscarQuarto(int numeroQuarto) throws Exception{
+			QuartoDao quartoDao = DaoFactory.getQuartoDAO();
+			Quarto quarto = quartoDao.buscarQuarto(numeroQuarto);
+			return quarto;
 		}
 }

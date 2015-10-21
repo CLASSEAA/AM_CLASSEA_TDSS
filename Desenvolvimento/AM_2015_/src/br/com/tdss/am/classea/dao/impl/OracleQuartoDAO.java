@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import br.com.tdss.am.classea.dao.interfaces.QuartoDao;
 import br.com.tdss.am.classea.entity.Quarto;
@@ -19,12 +18,12 @@ public class OracleQuartoDAO implements QuartoDao {
 			+ "ON(RQ.NR_QUARTO = QU.NR_QUARTO) " + "WHERE RQ.ID_RESERVA=?");
 	
 
-	public List<Quarto> buscarQuartoReservado(Reserva reserva) throws SQLException {
+	public ArrayList<Quarto> buscarQuartoReservado(Reserva reserva) throws SQLException {
 
 		try {
 			PreparedStatement stmt = conn.prepareStatement(buscaQuartoReservado);
 			ResultSet rs = stmt.executeQuery();
-			List<Quarto> quartos = new ArrayList<Quarto>();
+			ArrayList<Quarto> quartos = new ArrayList<Quarto>();
 
 			while (rs.next()) {
 				Quarto quarto = new Quarto();
