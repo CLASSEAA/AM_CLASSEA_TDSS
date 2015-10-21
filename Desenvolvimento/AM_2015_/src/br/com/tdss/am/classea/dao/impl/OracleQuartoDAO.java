@@ -28,7 +28,7 @@ public class OracleQuartoDAO implements QuartoDao {
 						   + "ON (Q.ID_TIPO_QUARTO = TQ.ID_TIPO_QUARTO) "
 						   + "INNER JOIN T_AM_CLA_HIST_VALOR HV "
 						   + "ON (TQ.ID_TIPO_QUARTO = HV.ID_TIPO_QUARTO) "
-						   + "WHERE Q.NR_QUARTO = 3 "
+						   + "WHERE Q.NR_QUARTO = ? "
 						   + "AND TO_CHAR(HV.DT_VALIDADE, 'YYYYMMDD') >= TO_CHAR(SYSDATE, 'YYYYMMDD')";
 	
 
