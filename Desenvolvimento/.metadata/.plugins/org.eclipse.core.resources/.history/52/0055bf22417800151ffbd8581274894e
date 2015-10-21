@@ -9,6 +9,5 @@ public class Painel {
 		
 		reserva = DaoFactory.getReservaDAO().buscarReservar(reserva);
 		System.out.println(reserva.getCliente().getNome());
-		System.out.println("teste");
 	}
 }
