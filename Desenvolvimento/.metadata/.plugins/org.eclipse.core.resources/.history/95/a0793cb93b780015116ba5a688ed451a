@@ -1,0 +1,24 @@
+package br.com.fiap.tdss.am.classea.bo;
+
+import java.util.ArrayList;
+
+import br.com.tdss.am.classea.dao.DaoFactory;
+import br.com.tdss.am.classea.dao.interfaces.ConsumoDao;
+import br.com.tdss.am.classea.entity.Consumo;
+import br.com.tdss.am.classea.entity.Funcionario;
+import br.com.tdss.am.classea.entity.Hospedagem;
+
+class ConsumoBO {
+	
+	public void incluirConsumo(Hospedagem hospedagem, Funcionario funcionario, Consumo consumo) throws Exception{
+		
+		ConsumoDao consumoDao = DaoFactory.getConsumoDao();
+
+		consumoDao.incluirConsumo(consumo, hospedagem, funcionario);
+	
+	}
+	
+	public ArrayList<Consumo> listarConsumo(Hospedagem hospedagem){
+		return null;
+	}
+}
