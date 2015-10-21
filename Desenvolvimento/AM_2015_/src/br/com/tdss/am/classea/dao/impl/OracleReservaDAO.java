@@ -41,7 +41,7 @@ public class OracleReservaDAO implements ReservaDAO{
 			funcionario = new Funcionario();
 			while(rs.next()){
 				this.reserva.setIdReserva(rs.getInt("ID_RESERVA"));
-				cliente.setIdPessoa(rs.getInt("ID_PESSOA")); //pegando o id do cliente vindo da reserva e atribuindo ao cliente já instanciado
+				this.reserva.setCliente((rs.getInt("ID_PESSOA")); //pegando o id do cliente vindo da reserva e atribuindo ao cliente já instanciado
 				this.reserva.setDataSolicitacao(rs.getString("TO_CHAR(R.DT_SOLICITACAO,'DD/MM/YYYY')"));
 				this.reserva.setDataInicio(rs.getString("TO_CHAR(R.DT_INICIO_RESERVA,'DD/MM/YYYY')"));
 				this.reserva.setDataFinal(rs.getString("TO_CHAR(R.DT_FINAL_RESERVA,'DD/MM/YYYY')"));
@@ -52,6 +52,8 @@ public class OracleReservaDAO implements ReservaDAO{
 			
 			cliente = DaoFactory.getClienteDao().buscarCliente(cliente);
 			this.reserva.setCliente(cliente);
+			
+			
 			
 			return this.reserva;
 			
