@@ -6,6 +6,7 @@ public class Quarto {
 	private int idTipo;
 	private int andar;
 	private int capacidade;
+	private String descricaoQuarto;
 	private double precoDiaria;
 	
 	public int getNumero() {
@@ -37,6 +38,12 @@ public class Quarto {
 	}
 	public void setPrecoDiaria(double precoDiaria) {
 		this.precoDiaria = precoDiaria;
+	}
+	public String getDescricaoQuarto() {
+		return descricaoQuarto;
+	}
+	public void setDescricaoQuarto(String descricaoQuarto) {
+		this.descricaoQuarto = descricaoQuarto;
 	}
 	
 	

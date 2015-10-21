@@ -17,6 +17,20 @@ public class OracleQuartoDAO implements QuartoDao {
 			+ "INNER JOIN T_AM_CLA_QUARTO QU "
 			+ "ON(RQ.NR_QUARTO = QU.NR_QUARTO) " + "WHERE RQ.ID_RESERVA=?");
 	
+	String buscarQuarto  = "SELECT "
+						   + "Q.ID_TIPO_QUARTO, "
+						   + "Q.NR_ANDAR, "
+						   + "Q.NR_CAPACIDADE, "
+						   + "TQ.DS_TIPO_QUARTO, "
+						   + "HV.VL_PRECO_QUARTO "
+						   + "FROM T_AM_CLA_QUARTO Q "
+						   + "INNER JOIN T_AM_CLA_TIPO_QUARTO TQ "
+						   + "ON (Q.ID_TIPO_QUARTO = TQ.ID_TIPO_QUARTO) "
+						   + "INNER JOIN T_AM_CLA_HIST_VALOR HV "
+						   + "ON (TQ.ID_TIPO_QUARTO = HV.ID_TIPO_QUARTO) "
+						   + "WHERE Q.NR_QUARTO = 3 "
+						   + "AND TO_CHAR(HV.DT_VALIDADE, 'YYYYMMDD') >= TO_CHAR(SYSDATE, 'YYYYMMDD')";
+	
 
 	public ArrayList<Quarto> buscarQuartoReservado(Reserva reserva) throws SQLException {
 
@@ -56,8 +70,19 @@ public class OracleQuartoDAO implements QuartoDao {
 	public Quarto buscarQuarto(int numeroQuarto) throws SQLException {
 		try {
 			conn = ConnectionManager.getInstance().getConnection();
+			PreparedStatement stmt = conn.prepareStatement(buscarQuarto);
+			ResultSet rs = stmt.executeQuery();
+			Quarto quarto = new Quarto();
 			
-			
+				quarto.setNumero(numeroQuarto);
+				quarto.setAndar(rs.getInt("NR_ANDAR"));
+				quarto.setCapacidade(rs.getInt("NR_CAPACIDADE"));
+				quarto.setDescricaoQuarto(rs.getString("DS_TIPO_QUARTO"));
+				quarto.setIdTipo(rs.getInt("ID_TIPO_QUARTO"));
+				quarto.setPrecoDiaria(rs.getDouble("VL_PRECO_QUARTO"));
+				
+				return quarto;
+				
 		} catch (Exception e) {
 			// TODO: handle exception
 		} finally {
