@@ -8,5 +8,6 @@ import br.com.tdss.am.classea.entity.Reserva;
 
 public interface QuartoDao {
 
-	public List<Quarto> buscarQuarto(Reserva reserva) throws SQLException ;
+	public List<Quarto> buscarQuartoReservado(Reserva reserva) throws SQLException;
+	public Quarto buscarQuarto(int numeroQuarto) throws SQLException;
 }

@@ -14,14 +14,15 @@ import br.com.tdss.am.classea.entity.Reserva;
 public class OracleQuartoDAO implements QuartoDao {
 
 	private Connection conn;
-	String busca = ("SELECT RQ.NR_QUARTO " + "FROM T_AM_CLA_RESERVA_QUARTO RQ "
+	String buscaQuartoReservado = ("SELECT RQ.NR_QUARTO " + "FROM T_AM_CLA_RESERVA_QUARTO RQ "
 			+ "INNER JOIN T_AM_CLA_QUARTO QU "
 			+ "ON(RQ.NR_QUARTO = QU.NR_QUARTO) " + "WHERE RQ.ID_RESERVA=?");
+	
 
-	public List<Quarto> buscarQuarto(Reserva reserva) throws SQLException {
+	public List<Quarto> buscarQuartoReservado(Reserva reserva) throws SQLException {
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement(busca);
+			PreparedStatement stmt = conn.prepareStatement(buscaQuartoReservado);
 			ResultSet rs = stmt.executeQuery();
 			List<Quarto> quartos = new ArrayList<Quarto>();
 
@@ -40,8 +41,36 @@ public class OracleQuartoDAO implements QuartoDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new SQLException("Erro ao buscar quarto no Banco");
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e2) {
+					throw new SQLException("Erro ao fechar conexão");
+				}
+			}
 		}
 
+	}
+
+	@Override
+	public Quarto buscarQuarto(int numeroQuarto) throws SQLException {
+		try {
+			conn = ConnectionManager.getInstance().getConnection();
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e2) {
+					throw new SQLException("Erro ao fechar conexão");
+				}
+			}
+		}
+		return null;
 	}
 
 }
