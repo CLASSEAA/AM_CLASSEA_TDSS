@@ -8,7 +8,7 @@ import br.com.tdss.am.classea.entity.Consumo;
 import br.com.tdss.am.classea.entity.Funcionario;
 import br.com.tdss.am.classea.entity.Hospedagem;
 
-class ConsumoBO {
+public class ConsumoBO {
 	
 	public void incluirConsumo(Hospedagem hospedagem, Funcionario funcionario, ArrayList<Consumo> consumo) throws Exception{
 		
