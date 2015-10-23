@@ -39,11 +39,21 @@ public class Util {
 		String dia = data.substring(0, 1);
 		String mes = data.substring(3,4);
 		String ano = data.substring(5, 6);
+		
+		
 				
 		String d = ano + mes + dia; 
 
 		return d;
 		
-	} 
+	}
+	
+	public static String converterMilis(Calendar calendar){
+			String ano = String.valueOf(calendar.get(Calendar.YEAR));
+			String mes = String.valueOf(calendar.get(Calendar.MONTH));
+			String dia = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+			
+			return dia + "/" + mes + "/" + ano;
+	}
 	
 }
