@@ -30,16 +30,17 @@ public class BuscaReserva extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idReserva = Integer.parseInt(request.getParameter("idReserva"));
+		
 		try {
-			
+			int idReserva = Integer.parseInt(getInitParameter("idReserva"));
 			Reserva reserva = new Reserva();
 			ReservaBO reservaBO = new ReservaBO();
 			reserva.setIdReserva(idReserva);
 			reserva = reservaBO.buscarReserva(reserva);
 			getServletContext().setAttribute("reserva", reserva);
+			response.sendRedirect("hospedagem.jsp");
 		} catch (Exception e) {
-			// Redirect em caso de erro
+			response.sendRedirect("hospedagem.jsp?reserva=false");
 		}
 	}
 
