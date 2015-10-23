@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.javafx.geom.Quat4f;
-
-import br.com.tdss.am.classea.dao.DaoFactory;
 import br.com.tdss.am.classea.dao.interfaces.ReservaDAO;
 import br.com.tdss.am.classea.entity.Cliente;
 import br.com.tdss.am.classea.entity.Funcionario;
