@@ -12,8 +12,6 @@ public class Util {
 		SimpleDateFormat h = new SimpleDateFormat("YYMMDD");
 		SimpleDateFormat r = new SimpleDateFormat("YYMMDD");
 		
-		
-		
 		try {
 			Date dH = h.parse(converterData(dataHospedagem));
 			Date dR = r.parse(converterData(dataInicioReserva));
