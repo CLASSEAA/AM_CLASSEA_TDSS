@@ -1,6 +1,5 @@
 package br.com.tdss.am.classea.entity;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 public class Reserva {

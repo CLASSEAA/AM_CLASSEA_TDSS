@@ -8,16 +8,12 @@ public class Painel {
 		reserva.setIdReserva(6);
 
 		reserva = DaoFactory.getReservaDAO().buscarReservar(reserva);
-		System.out.println(reserva.getCliente().getNome());
 
-		System.out.println("ID Reserva: " + reserva.getIdReserva());
-		System.out.println("Cliente: " + reserva.getCliente().getNome());
+		System.out.println("ID Reserva: " + reserva.getIdReserva()+" Cliente: " + reserva.getCliente().getNome());
 		
 		for (int i = 0; i < reserva.getQuartos().size(); i++) {
-			System.out.println("Quarto numero: "+reserva.getQuartos().get(i).getNumero());
-			System.out.println("Andar do quarto: "+reserva.getQuartos().get(i).getAndar());
-			System.out.println("Descrição quarto: "+reserva.getQuartos().get(i).getDescricaoQuarto());
+			System.out.println("Quarto numero: "+reserva.getQuartos().get(i).getNumero()+" Andar do quarto: "+reserva.getQuartos().get(i).getAndar()+" Descrição quarto: "+reserva.getQuartos().get(i).getDescricaoQuarto());
 		}
-		System.out.println("Funcionario: " + reserva.getFuncionario().getNome());
+		System.out.println("ID funcionário: "+reserva.getFuncionario().getIdPessoa()+" Funcionario: " + reserva.getFuncionario().getNome());
 	}
 }

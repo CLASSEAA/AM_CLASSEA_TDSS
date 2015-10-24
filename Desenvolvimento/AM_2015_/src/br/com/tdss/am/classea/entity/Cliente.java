@@ -1,6 +1,5 @@
 package br.com.tdss.am.classea.entity;
 
-import java.sql.Date;
 
 public class Cliente extends Pessoa {
 
