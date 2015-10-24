@@ -17,33 +17,37 @@ import br.com.tdss.am.classea.entity.Reserva;
 @WebServlet("/BuscaReserva")
 public class BuscaReserva extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BuscaReserva() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public BuscaReserva() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
 		try {
 			int idReserva = Integer.parseInt(getInitParameter("idReserva"));
 			Reserva reserva = new Reserva();
 			ReservaBO reservaBO = new ReservaBO();
 			reserva.setIdReserva(idReserva);
 			reserva = reservaBO.buscarReserva(reserva);
-			getServletContext().setAttribute("reserva", reserva);
-			response.sendRedirect("hospedagem.jsp");
+			if (reserva == null) {
+				response.sendRedirect("hospedagem.jsp?reserva=false");
+			} else {
+				getServletContext().setAttribute("reserva", reserva);
+				response.sendRedirect("hospedagem.jsp");
+			}
 		} catch (Exception e) {
 			response.sendRedirect("hospedagem.jsp?reserva=false");
 		}
 	}
-
-
 
 }

@@ -7,8 +7,13 @@ import br.com.tdss.am.classea.entity.Reserva;
 public class ReservaBO {
 	
 	public Reserva buscarReserva(Reserva reserva) throws Exception{
+		String id = Integer.toString(reserva.getIdReserva());
+		if(id == null || id.length() < 8){
+			return null;
+		}else{
 		ReservaDAO reservaDAO = DaoFactory.getReservaDAO();
 		Reserva r = reservaDAO.buscarReservar(reserva);
 		return r;
+		}
 	}
 }

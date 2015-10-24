@@ -7,13 +7,21 @@ import java.sql.SQLException;
 
 import br.com.tdss.am.classea.dao.interfaces.FuncionarioDAO;
 import br.com.tdss.am.classea.entity.Funcionario;
-
+/**
+ * Classe para implementação de funcionário no Banco de Dados
+ * **/
 public class OracleFuncionarioDAO implements FuncionarioDAO {
 
 	private Connection conn;
 	private PreparedStatement stmt;
 	private static final String sqlConsulta = "SELECT F.ID_FUNCIONARIO, P.NM_PESSOA FROM T_AM_CLA_FUNCIONARIO F INNER JOIN T_AM_CLA_PESSOA P ON(F.ID_FUNCIONARIO = P.ID_PESSOA) WHERE F.ID_FUNCIONARIO = ?";
 	
+	
+	/**
+	 * Metodo para buscar funcionário no banco de dados
+	 * @param Passe <code>Funcionario</code> como parametro
+	 * @return <code>Funcionario</code>
+	 * **/
 	@Override
 	public Funcionario buscarFuncionarioDAO(Funcionario funcionario) {
 		try {
