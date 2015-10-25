@@ -13,29 +13,56 @@ import br.com.tdss.am.classea.dao.interfaces.HospedagemDao;
 import br.com.tdss.am.classea.dao.interfaces.QuartoDao;
 import br.com.tdss.am.classea.dao.interfaces.ReservaDAO;
 
+/**
+ * Fabrica de DAOs<br/>
+ * Classe utilizada para a utilização de qualquer DAO do sistema
+ * */
 public abstract class DaoFactory {
-
+	
+	/**
+	 * @return Implementação de {@link Hospedagem}
+	 * @see br.com.tdss.am.classea.dao.impl.OracleHospedagemDao
+	 * */
 	public static HospedagemDao getHospedagemDao(){
 		return new OracleHospedagemDao();
 	}
-	
+	/**
+	 * @return Implementação de {@link Consumo}
+	 * @see br.com.tdss.am.classea.dao.impl.OracleConsumoDao
+	 * */
 	public static ConsumoDao getConsumoDao(){
 		return new OracleConsumoDao();
 	}
 	
+	/**
+	 * @return Implementação de {@link Cliente}
+	 * @see br.com.tdss.am.classea.dao.impl.OracleClienteDAO
+	 * */
 	public static ClienteDao getClienteDao(){
 		return new OracleClienteDAO();
 	}
 	
-	
+	/**
+	 * @return Implementação de {@link Funcionario}
+	 * @see br.com.tdss.am.classea.dao.impl.OracleFuncionarioDAO
+	 * */
 	public static FuncionarioDAO getFuncionarioDAO(){
 		return new OracleFuncionarioDAO();
 	}
 	
+	/**
+	 * @return Implementação de {@link Reserva}
+	 * @see br.com.tdss.am.classea.dao.impl.OracleReservaDAO
+	 * */
 	public static ReservaDAO getReservaDAO(){
 		return new OracleReservaDAO();
 	}
 	
+
+	/**
+	 * @return Implementação de {@link Quarto}
+	 * @see br.com.tdss.am.classea.dao.impl.OracleQuartoDAO
+	 * */
 	public static QuartoDao getQuartoDAO(){
 		return new OracleQuartoDAO();
 	}

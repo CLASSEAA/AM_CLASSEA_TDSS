@@ -12,8 +12,18 @@ import br.com.tdss.am.classea.entity.Hospedagem;
 import br.com.tdss.am.classea.entity.Quarto;
 import br.com.tdss.am.classea.entity.Reserva;
 
+/**
+ * @author Ivan Tarabay
+ * Classe para implementação de {@link Hospedagem} no banco de dados
+ * */
 public class OracleHospedagemDao implements HospedagemDao {
-
+	
+	
+	/**
+	 * Metodo responsavel pela inclusão de {@link Hospedagem} no banco de dados
+	 * @return void
+	 * @throws SQLException
+	 * */
 	@Override
 	public void incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws SQLException {
 		Connection conn = null;
@@ -49,6 +59,10 @@ public class OracleHospedagemDao implements HospedagemDao {
 		
 	}
 
+	/**
+	 * Metodo para busca de {@link Hospedagem} no banco de dados
+	 * @return {@link Hospedagem}
+	 * */
 	@Override
 	public Hospedagem buscarHospedagem(int idHospedagem) throws SQLException {
 		Connection conn = null;

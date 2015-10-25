@@ -8,8 +8,9 @@ import java.sql.SQLException;
 import br.com.tdss.am.classea.dao.interfaces.FuncionarioDAO;
 import br.com.tdss.am.classea.entity.Funcionario;
 /**
- * Classe para implementação de funcionário no Banco de Dados
- * **/
+ * Classe para implementação de {@link Funcionario} no Banco de Dados
+ * @author Vitor Costa José;
+ * */
 public class OracleFuncionarioDAO implements FuncionarioDAO {
 
 	private Connection conn;
@@ -18,12 +19,13 @@ public class OracleFuncionarioDAO implements FuncionarioDAO {
 	
 	
 	/**
-	 * Metodo para buscar funcionário no banco de dados
-	 * @param Passe <code>Funcionario</code> como parametro
-	 * @return <code>Funcionario</code>
+	 * Metodo para buscar {@link Funcionario} no banco de dados
+	 * @param {@link Funcionario} 
+	 * @return {@link Funcionario}
+	 * @throws SQLException 
 	 * **/
 	@Override
-	public Funcionario buscarFuncionarioDAO(Funcionario funcionario) {
+	public Funcionario buscarFuncionarioDAO(Funcionario funcionario) throws SQLException {
 		try {
 
 			conn = ConnectionManager.getInstance().getConnection();
@@ -40,8 +42,6 @@ public class OracleFuncionarioDAO implements FuncionarioDAO {
 			
 			return funcionario;
 			
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
 		} finally {
 			try {
 				conn.close();
@@ -49,8 +49,6 @@ public class OracleFuncionarioDAO implements FuncionarioDAO {
 				System.out.println(e.getMessage());
 			}
 		}
-
-		return null;
 	}
 
 }

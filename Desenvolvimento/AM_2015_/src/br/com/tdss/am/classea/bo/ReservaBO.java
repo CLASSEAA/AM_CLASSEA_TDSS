@@ -8,7 +8,7 @@ public class ReservaBO {
 	
 	public Reserva buscarReserva(Reserva reserva) throws Exception{
 		String id = Integer.toString(reserva.getIdReserva());
-		if(id == null || id.length() < 8){
+		if(id == null){
 			return null;
 		}else{
 		ReservaDAO reservaDAO = DaoFactory.getReservaDAO();

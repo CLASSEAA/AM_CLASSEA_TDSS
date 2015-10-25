@@ -11,9 +11,17 @@ import br.com.tdss.am.classea.entity.Consumo;
 import br.com.tdss.am.classea.entity.Funcionario;
 import br.com.tdss.am.classea.entity.Hospedagem;
 import br.com.tdss.am.classea.entity.ProdutoServico;
-
+/**
+ * Classe para implementação de {@link Consumo} no banco de dados
+ * @author Ivan Tarabay
+ * */
 public class OracleConsumoDao implements ConsumoDao {
 
+	/**
+	 * Metodo para inclusão de {@link Consumo} no Banco de Dados
+	 * @throws SQLException
+	 * @return void
+	 * */
 	@Override
 	public void incluirConsumo(Consumo consumo, Hospedagem hospedagem, Funcionario funcionario) throws SQLException {
 		Connection conn = null;
@@ -48,6 +56,11 @@ public class OracleConsumoDao implements ConsumoDao {
 		}
 	}
 
+	/**
+	 * Metodo para a listagem de {@link Consumo}
+	 * @return ArrayLista<{@link Consumo}>
+	 * @throws SQLException
+	 * */
 	@Override
 	public ArrayList<Consumo> listarConsumo(Hospedagem hospedagem) throws SQLException {
 		ArrayList<Consumo> consumoTotal = new ArrayList<Consumo>();

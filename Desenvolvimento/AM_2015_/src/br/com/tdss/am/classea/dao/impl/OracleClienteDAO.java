@@ -8,21 +8,23 @@ import br.com.tdss.am.classea.entity.Cliente;
 
 /**
  * Classe para busca de clientes no banco de dados
- * **/
+ * @author Vitor Costa José
+ * */
 public class OracleClienteDAO implements ClienteDao {
 
 	private PreparedStatement stmt;
 	private Connection conn;
-	private static final String sqlConsulta = "SELECT C.ID_CLIENTE, P.NM_PESSOA, C.NR_CPF, C.NR_RG, to_char(C.DT_NASCIMENTO,'DDMMYYYY'), L.DS_LOGRADOURO FROM T_AM_CLA_CLIENTE C INNER JOIN T_AM_CLA_PESSOA P on(C.ID_CLIENTE = P.ID_PESSOA) INNER JOIN T_AM_CLA_PESSOA_ENDE PE ON (PE.ID_PESSOA = P.ID_PESSOA) INNER JOIN T_AM_CLA_LOGRADOURO L ON (PE.NR_CEP = L.NR_CEP) WHERE ID_CLIENTE = ?";
+	private static final String sqlConsulta = "SELECT C.ID_CLIENTE, P.NM_PESSOA, C.NR_CPF, C.NR_RG, TO_CHAR(C.DT_NASCIMENTO,'DDMMYYYY'), L.DS_LOGRADOURO FROM T_AM_CLA_CLIENTE C INNER JOIN T_AM_CLA_PESSOA P on(C.ID_CLIENTE = P.ID_PESSOA) INNER JOIN T_AM_CLA_PESSOA_ENDE PE ON (PE.ID_PESSOA = P.ID_PESSOA) INNER JOIN T_AM_CLA_LOGRADOURO L ON (PE.NR_CEP = L.NR_CEP) WHERE ID_CLIENTE = ?";
 
 	
 	/**
-	 * Metodo que realiza a busca
-	 * @param Passe <code>Cliente</code> como parametro
-	 * @return <code>Cliente</code>
+	 * Metodo que realiza a busca de {@link Cliente}
+	 * @param {@link Cliente}
+	 * @return {@link Cliente}
+	 * @throws SQLException 
 	 * **/
 	@Override
-	public Cliente buscarCliente(Cliente cliente) {
+	public Cliente buscarCliente(Cliente cliente) throws SQLException {
 		
 		try {
 			conn = ConnectionManager.getInstance().getConnection();
@@ -41,8 +43,7 @@ public class OracleClienteDAO implements ClienteDao {
 				cliente2.setEndereco(rs.getString("DS_LOGRADOURO"));
 			}
 			return cliente2;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+		
 		}finally{
 			try {
 				conn.close();
@@ -50,7 +51,6 @@ public class OracleClienteDAO implements ClienteDao {
 				System.out.println(e.getMessage());
 			}
 		}	
-		return null;
 	}
 
 }

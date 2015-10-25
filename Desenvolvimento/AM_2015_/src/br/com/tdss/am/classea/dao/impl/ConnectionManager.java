@@ -5,35 +5,29 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Gerenciador de conexao com o banco de dados Oracle.</br>
- * Esta classe eh utilizada nas classes DAO para o Oracle.
+ * Gerenciador de conexao com o banco de dados Oracle.
  */
 class ConnectionManager {
 
-	//instancia(unica) a ser fornecida
 	private static ConnectionManager instance;
 	
 		
 	private ConnectionManager() throws ClassNotFoundException {
 
-		//
-		//Registra o driver JDBC (neste caso o driver de conexao para o Oracle)
-		//
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		
 	}
 	
 	
 	/**
-	 * Pega a instancia desta classe.
-	 * @return A instancia.
+	 * Pega instancia desta classe
+	 * @return Instancia
 	 * @throws SQLException
 	 */
 	public static ConnectionManager getInstance() throws SQLException{
 
 		try{
 		
-			//verifica se jah existe uma instancia, se nao existe entao instancia
 			if (instance == null) {
 				instance = new ConnectionManager();
 			}

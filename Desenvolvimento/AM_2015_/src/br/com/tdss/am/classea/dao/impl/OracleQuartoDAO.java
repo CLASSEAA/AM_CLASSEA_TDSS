@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import br.com.tdss.am.classea.dao.interfaces.QuartoDao;
 import br.com.tdss.am.classea.entity.Quarto;
 import br.com.tdss.am.classea.entity.Reserva;
-
+/**
+ *implementação de {@link Quarto} no banco de dados
+ *@author Ivan Tarabay
+ * */
 public class OracleQuartoDAO implements QuartoDao {
 
 	private Connection conn;
@@ -31,7 +34,13 @@ public class OracleQuartoDAO implements QuartoDao {
 						   + "WHERE Q.NR_QUARTO = ? "
 						   + "AND TO_CHAR(HV.DT_VALIDADE, 'YYYYMMDD') >= TO_CHAR(SYSDATE, 'YYYYMMDD')";
 	
-
+	
+	/**
+	 * Metodo para busca de uma lista de {@link Quarto} no Banco de Dados
+	 * @param {@link Reserva}
+	 * @return Arraylist<{@link Quarto}>
+	 * @throws SQLException 
+	 * */
 	public ArrayList<Quarto> buscarQuartoReservado(Reserva reserva) throws SQLException {
 
 		try {
@@ -66,6 +75,11 @@ public class OracleQuartoDAO implements QuartoDao {
 
 	}
 
+	/**
+	 * Metodo para a busca de um único {@link Quarto} no banco de dados
+	 * @return {@link Quarto}
+	 * @throws SQLException
+	 * */
 	@Override
 	public Quarto buscarQuarto(int numeroQuarto) throws SQLException {
 		try {
