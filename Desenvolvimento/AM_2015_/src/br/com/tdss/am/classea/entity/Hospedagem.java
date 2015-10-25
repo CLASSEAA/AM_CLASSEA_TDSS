@@ -1,7 +1,9 @@
 package br.com.tdss.am.classea.entity;
 
 import java.util.ArrayList;
-
+/**
+ * TO - Hospedagem
+ * */
 public class Hospedagem {
 	
 	private int idHospedagem;

@@ -1,6 +1,8 @@
 package br.com.tdss.am.classea.entity;
 
-
+/**
+ * TO - Cliente
+ * */
 public class Cliente extends Pessoa {
 
 	private String cpf;

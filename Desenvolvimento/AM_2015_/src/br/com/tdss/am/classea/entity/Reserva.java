@@ -2,6 +2,10 @@ package br.com.tdss.am.classea.entity;
 
 import java.util.ArrayList;
 
+
+/**
+ * TO - Reserva
+ * */
 public class Reserva {
 
 	private int idReserva;

@@ -1,5 +1,8 @@
 package br.com.tdss.am.classea.entity;
 
+/**
+ * TO - Pessoa
+ * */
 public abstract class Pessoa {
 
 	private int idPessoa;

@@ -1,5 +1,9 @@
 package br.com.tdss.am.classea.entity;
 
+
+/**
+ * TO - ProdutoServico
+ * */
 public class ProdutoServico {
 
 	private int idTipoServico;

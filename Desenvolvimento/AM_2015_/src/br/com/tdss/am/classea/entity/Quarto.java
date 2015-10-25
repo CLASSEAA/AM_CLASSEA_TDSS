@@ -1,5 +1,9 @@
 package br.com.tdss.am.classea.entity;
 
+
+/**
+ * TO - Quarto
+ * */
 public class Quarto {
 	
 	private int numero;

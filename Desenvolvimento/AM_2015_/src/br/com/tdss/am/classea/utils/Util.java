@@ -4,9 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-
+/**
+ * Classe com função de auxiliar as demais classes no processamento de informações
+ * */
 public class Util {
 
+	
+	/**
+	 * Metodo para comparar data de reserva com data da hospedagem
+	 * @return {@link Boolean}
+	 * */
 	public static boolean compararDatas(String dataHospedagem, String dataInicioReserva){
 		
 		SimpleDateFormat h = new SimpleDateFormat("YYMMDD");

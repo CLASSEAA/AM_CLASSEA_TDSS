@@ -1,6 +1,8 @@
 package br.com.tdss.am.classea.entity;
 
-
+/**
+ * TO - Consumo
+ * */
 public class Consumo {
 	
 	private int idConsumo;
