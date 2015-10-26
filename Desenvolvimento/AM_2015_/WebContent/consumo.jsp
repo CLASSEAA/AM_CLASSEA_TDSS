@@ -38,7 +38,7 @@
 		<h3>Controle de Consumo</h3>
 			<br>
 		<div class="container">
-			<form action="#" method="get">
+			<form action="ListaConsumo" method="get">
 				<div class="col-xs-4">
 				<div class="form-group">
 					<label for="usr">Nº da Hospedagem:</label>
@@ -48,7 +48,7 @@
 				</div>
 			</form>
 		</div>
-		
+	</div>
 		<div class="container" id="consumo-content">
 			<div class="row">
 				<div class="col-md-8">
@@ -65,7 +65,9 @@
 							<c:forEach var="n" items="${hospedagem.consumo}">
 								<tr>
 									<td>${n.produtoServico.idTipoServico} </td>
-									<td></td>
+									<td>${n.produtoServico.descricao}</td>
+									<td>${n.produtoServico.preco}</td>
+									<td>${n.valorConsumo}</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -73,7 +75,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 	</script>
 	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js">
