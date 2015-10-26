@@ -53,7 +53,7 @@
 
 	<div class="container">
 		<div class="row">
-			<form action="registraHospedagem" method="get">
+			<form action="RegistraHospedagem" method="get">
 					<div class=row>
 						<div class="col-md-6">
 							<h3 class="text-left">Dados da Reserva:</h3>
