@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.tdss.am.classea.dao.impl.OracleReservaDAO;
+import br.com.tdss.am.classea.entity.Funcionario;
+import br.com.tdss.am.classea.entity.Hospedagem;
+import br.com.tdss.am.classea.entity.Quarto;
 import br.com.tdss.am.classea.entity.Reserva;
+import br.com.tdss.am.classea.utils.Util;
 
 /**
  * Servlet implementation class RegistraHospedagem
@@ -27,17 +31,24 @@ public class RegistraHospedagem extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		try {
+			Util util = new Util();
+			Hospedagem hospedagem = new Hospedagem();
+			
 			// Recebendo idReserva e buscando reserva a partir deste ID recebido
 			int idReserva = Integer.parseInt(request.getParameter("idReserva"));
 			Reserva reserva = new Reserva();
 			reserva.setIdReserva(idReserva);
 			OracleReservaDAO reservaDAO = new OracleReservaDAO();
 			
-			reserva = reservaDAO.buscarReservar(reserva);
-			
-			//Funcionario funcionario = new Funcionario();
-			
-			
+			for (int i = 0; i < reservaDAO.buscarReservar(reserva).getQuartos()
+					.size(); i++) {
+				hospedagem.setReserva(reservaDAO.buscarReservar(reserva));
+				hospedagem.setFuncionario(reserva.getFuncionario());
+				hospedagem.setQuarto(reserva.getQuartos().get(i));
+				hospedagem.setDataEntrada(util.buscarDataAtual());
+				
+			}
+
 			PrintWriter out = response.getWriter();
 			out.append("<html><body>");
 			// out.append(""+id);

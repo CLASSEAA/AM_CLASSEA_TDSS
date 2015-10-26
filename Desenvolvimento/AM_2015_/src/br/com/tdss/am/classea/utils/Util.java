@@ -1,5 +1,6 @@
 package br.com.tdss.am.classea.utils;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -59,6 +60,13 @@ public class Util {
 			String dia = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 			
 			return dia + "/" + mes + "/" + ano;
+	}
+	
+	public static String buscarDataAtual(){
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date date = new Date();
+		String data = dateFormat.format(date);
+		return data;
 	}
 	
 }
