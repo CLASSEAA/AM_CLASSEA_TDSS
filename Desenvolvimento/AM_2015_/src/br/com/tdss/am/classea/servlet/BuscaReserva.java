@@ -34,7 +34,7 @@ public class BuscaReserva extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		try {
-			int idReserva = Integer.parseInt(getInitParameter("idReserva"));
+			int idReserva = Integer.parseInt(request.getParameter("idReserva"));
 			Reserva reserva = new Reserva();
 			ReservaBO reservaBO = new ReservaBO();
 			reserva.setIdReserva(idReserva);
