@@ -17,6 +17,8 @@ import br.com.tdss.am.classea.entity.Quarto;
 import br.com.tdss.am.classea.entity.Reserva;
 import br.com.tdss.am.classea.utils.Util;
 
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+
 /**
  * Servlet implementation class RegistraHospedagem
  */
@@ -57,8 +59,11 @@ public class RegistraHospedagem extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			}
 		}
 
+	public static void main(String[] args) {
+		System.out.println("AI VITOR VAI TOMA NO CÚ");
 	}
 
 }

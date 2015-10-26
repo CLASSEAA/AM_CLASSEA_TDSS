@@ -49,7 +49,9 @@
 			</form>
 		</div>
 		
-		<div class="container" id="consumo-content">
+	</div>
+	
+			<div class="container" id="consumo-content">
 			<div class="row">
 				<div class="col-md-8">
 					<table class="table-striped">
@@ -73,7 +75,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 	</script>
 	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js">

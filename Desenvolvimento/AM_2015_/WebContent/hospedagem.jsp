@@ -53,7 +53,7 @@
 
 	<div class="container">
 		<div class="row">
-			<form action="RegistraHospedagem" method="get">
+			<form action="registraHospedagem" method="get">
 					<div class=row>
 						<div class="col-md-6">
 							<h3 class="text-left">Dados da Reserva:</h3>
@@ -124,6 +124,62 @@
 			</form>
 		</div>
 	</div>
+	
+	<div class="container">
+	<div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Numero da reserva invalido!</h4>
+		    </div>
+		       <div class="modal-body">
+	        	  <p>Por favor informe um numero de reserva valido.</p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	        </div>
+	      </div>
+   			 </div>
+  		</div>
+  		
+  	<div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Hospedagem Confirmada com sucesso!</h4>
+		    </div>
+		       <div class="modal-body">
+	        	  <p>Numero da Hospedagem</p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	        </div>
+	      </div>
+   			 </div>
+  		</div>
+  		
+  	<div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Erro ao confirmar hospedagem!</h4>
+		    </div>
+		       <div class="modal-body">
+	        	  <p>Favor verificar os campos e ver se estão validos.</p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	        </div>
+	      </div>
+   			 </div>
+  		</div>
+  		
+  		
+	</div>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 </body>
