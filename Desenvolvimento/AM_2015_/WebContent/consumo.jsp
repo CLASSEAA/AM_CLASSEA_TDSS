@@ -35,24 +35,43 @@
 	</div>
 	</nav>
 	<div class="jumbotron">
-		<h1>Controle de hospedagem</h1>
-		<p>Informe o numero da reserva abaixo, para realizarmos a
-			hospegadem.</p>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
+		<h3>Controle de Consumo</h3>
+			<br>
 		<div class="container">
 			<form action="#" method="get">
 				<div class="col-xs-4">
 				<div class="form-group">
-					<label for="usr">NRº da Hospedagem:</label>
+					<label for="usr">Nº da Hospedagem:</label>
 					 <input type="text" class="form-control" id="usr" placeholder="Id da hospedagem">
 				</div>
-				<button type="button">Validar</button>
+				<button type="button">Procurar</button>
 				</div>
 			</form>
+		</div>
+		
+		<div class="container" id="consumo-content">
+			<div class="row">
+				<div class="col-md-8">
+					<table class="table-striped">
+						 <thead>
+							<tr>
+        						<th>ID</th>
+        						<th>Descrição</th>
+        						<th>Preço Unitário</th>
+        						<th>Total</th>
+      						</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="n" items="${hospedagem.consumo}">
+								<tr>
+									<td>${n.produtoServico.idTipoServico} </td>
+									<td></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
