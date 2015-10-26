@@ -15,7 +15,7 @@ public class Reserva {
 	private String dataSolicitacao;
 	private String dataInicio;
 	private String dataFinal;
-	private int quantidadeAdulto;
+	private int quantidadeAdulto = 10;
 	private int quantidadeCrianca;
 	private boolean statusReserva;
 

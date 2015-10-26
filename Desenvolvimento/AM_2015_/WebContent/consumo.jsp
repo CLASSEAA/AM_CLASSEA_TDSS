@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,11 +12,11 @@
 	
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Hotel Boa Viagem Hospedagem</title>
+<title>Hotel Boa Viagem Consumo</title>
 </head>
 <body>
 
-	<nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Hotel Boa Viagem</a>
@@ -43,23 +44,24 @@
 			</br>
 			</br>
 		<div class="container">
-			<form action="BuscaReserva" method="get">
+			<form action="#" method="get">
 				<div class="col-xs-4">
 				<div class="form-group">
-					<label for="usr">NRº da Reserva:</label>
-					 <input type="text" name="idReserva" class="form-control" id="usr" placeholder="numero da reserva">
+					<label for="usr">NRº da Hospedagem:</label>
+					 <input type="text" class="form-control" id="usr" placeholder="Id da hospedagem">
 				</div>
 				<button type="button">Validar</button>
 				</div>
 			</form>
 		</div>
 	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 	</script>
 	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js">
 		
 	</script>
+
+
+
 </body>
 </html>
