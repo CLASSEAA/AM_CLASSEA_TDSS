@@ -55,6 +55,7 @@
 	<div class="container">
 		<div class="row">
 			<form action="registraHospedagem" method="get">
+					<div class=row>
 					<div class="col-md-6">
 					<h3 class="text-left">Dados da Reserva:</h3>
 					<br>	
@@ -70,6 +71,12 @@
 					<br>
 					<label for="dataFinal">Data Final: </label> 
 					<input readonly="true" type="text" name="dataFinal" value="${reserva.dataFinal}">
+					<br>
+					<label for="quantidadeAdulto"> Adultos: </label>
+					<input readonly="true" type="text" name="quantidadeAdulto" value="${reserva.quantidadeAdulto}">
+					<br>
+					<label for="quantidadeCrianca"> Crianças: </label>
+					<input readonly="true" type="text" name="quantidadeCrianca" value="${reserva.quantidadeCrianca}">
 					<br>
 					<h3 class="text-left">Cliente:</h3>
 					<br>
@@ -90,7 +97,29 @@
 					</div>
 					<div class="col-md-6">
 					<h3>Quarto(s) Reservado(s): </h3>
+					<c:forEach var="n" items="${reserva.quartos}" >
+						<p>número: ${n.numero}</p>
+						<p>tipo: ${n.descricaoQuarto}</p>
+						<label for=n>quantidade de pessoas: </label>
+						<input name=n type="text">
+						<hr>
+						<br>
+					</c:forEach>
 					</div>
+					</div>
+					<br>
+					<hr>
+					<div class="row">
+					<div class="col-md-5">
+					</div>
+					<div class="col-md-3">
+					<button type="submit">Confirmar Hospedagem</button>
+					</div>
+					<div class="col-md-4">
+					</div>
+					</div>
+					<br>
+					<br>
 			</form>
 		</div>
 	</div>
