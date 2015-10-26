@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.tdss.am.classea.dao.impl.OracleHospedagemDao;
 import br.com.tdss.am.classea.dao.impl.OracleReservaDAO;
 import br.com.tdss.am.classea.entity.Funcionario;
 import br.com.tdss.am.classea.entity.Hospedagem;
@@ -35,7 +36,7 @@ public class RegistraHospedagem extends HttpServlet {
 		try {
 			Util util = new Util();
 			Hospedagem hospedagem = new Hospedagem();
-			
+			OracleHospedagemDao hospedagemDAO = new OracleHospedagemDao();
 			// Recebendo idReserva e buscando reserva a partir deste ID recebido
 			int idReserva = Integer.parseInt(request.getParameter("idReserva"));
 			Reserva reserva = new Reserva();
@@ -49,8 +50,11 @@ public class RegistraHospedagem extends HttpServlet {
 				hospedagem.setQuarto(reserva.getQuartos().get(i));
 				hospedagem.setDataEntrada(util.buscarDataAtual());
 				
+				//Incluir no banco
+				hospedagemDAO.incluirHospedagem(hospedagem, hospedagem.getFuncionario());
+				
 			}
-
+			
 			PrintWriter out = response.getWriter();
 			out.append("<html><body>");
 			// out.append(""+id);

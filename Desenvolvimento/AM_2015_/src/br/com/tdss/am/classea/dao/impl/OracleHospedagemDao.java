@@ -36,12 +36,15 @@ public class OracleHospedagemDao implements HospedagemDao {
 					+ "(ID_HOSPEDAGEM, NR_QUARTO, ID_RESERVA, ID_CLIENTE, ID_FUNCIONARIO,"
 					+ " VL_PERC_DESCONTO, DT_ENTRADA)"
 					+ " VALUES"
-					+ " (SQ_AM_HOSPEDAGEM, ?, ?, ?, ?, 0, ?)");
+					+ " (SQ_AM_HOSPEDAGEM.NEXTVAL, ?, ?, ?, ?, 0, to_date(?,'yyyymmdd'))");
 			
 			stmt.setInt(1, hospedagem.getQuarto().getNumero());
 			stmt.setInt(2, hospedagem.getReserva().getIdReserva());
 			stmt.setInt(3, hospedagem.getReserva().getCliente().getIdPessoa());
-			stmt.setInt(4, hospedagem.getFuncionario().getIdPessoa());
+			stmt.setInt(4, hospedagem.getReserva().getFuncionario().getIdPessoa());
+			stmt.setString(5, hospedagem.getDataEntrada());
+			
+			stmt.execute();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

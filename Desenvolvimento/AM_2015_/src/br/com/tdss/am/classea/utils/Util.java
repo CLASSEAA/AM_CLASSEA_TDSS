@@ -62,7 +62,7 @@ public class Util {
 			return dia + "/" + mes + "/" + ano;
 	}
 	
-	public static String buscarDataAtual(){
+	public String buscarDataAtual(){
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = new Date();
 		String data = dateFormat.format(date);
