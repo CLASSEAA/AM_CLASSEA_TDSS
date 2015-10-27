@@ -17,20 +17,20 @@
 <body>
 
 	<div class="wrappp">
-		<p>Para efetuar login id= ....</p>
-		<p>Para efetuar login senha=....</p>
+		<p>Para efetuar login usuario = ltpweb</p>
+		<p>Para efetuar login senha = 123456</p>
 	</div>
 
 	<h1 class="wrapp">Favor informar Login e senha</h1>
 
-	<form action="#" class="wrap">
+	<form action="ValidarLogin" method="post" class="wrap">
 		<div class="col-xs-4">
 			<label>Login: </label>
-			 <input class="form-control" type="text" placeholder="id">
+			 <input class="form-control" type="text" name="login" placeholder="login">
 			 <label>Senha: </label>
-			 <input class="form-control" type="text" placeholder="senha">
+			 <input class="form-control" type="password" name="senha" placeholder="senha">
 			 </br>
-			 <button type="submit" class="btn btn-default">Entrar</button>
+			 <button type="submit" value="login" class="btn btn-default">Entrar</button>
 		</div>
 	</form>
 

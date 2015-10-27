@@ -49,24 +49,25 @@ public class OracleFuncionarioDAO implements FuncionarioDAO {
 				System.out.println(e.getMessage());
 			}
 		}
+	}
 		
-		/* Funcionario getFuncionario(String login, String senha) {
+				public Funcionario getFuncionario(String login, String senha) throws SQLException {
+					
 		        conn = ConnectionManager.getInstance().getConnection();
-		        PreparedStatement ps = null;
 		        ResultSet rs = null;
 		        try{
-		            ps = conn.prepareStatement("select id, nome from usuario where login = ? and senha = ?");
-		            ps.setString(1, login);
-		            ps.setString(2, senha);
+		            stmt = conn.prepareStatement("SELECT ID_FUNCIONARIO, NOME FROM T_AM_CLA_FUNCIONARIO WHERE login = ? and senha = ?");
+		            stmt.setString(1, login);
+		            stmt.setString(2, senha);
 		 
-		            rs = ps.executeQuery();
+		            rs = stmt.executeQuery();
 		 
-		            if ( rs.next() ){
+		            if (rs.next()){
 		                Funcionario func = new Funcionario();
-		                func.setId( rs.getInt("id") );
+		                func.setId(rs.getInt("ID_FUNCIONARIO") );
 		                func.setLogin(login);
 		                func.setSenha(senha);
-		                func.setNome( rs.getString("nome") );
+		                func.setNome(rs.getString("nome"));
 		 
 		                return func;
 		            }
@@ -79,9 +80,9 @@ public class OracleFuncionarioDAO implements FuncionarioDAO {
 		                try { rs.close(); } catch (SQLException e) { ; }
 		                rs = null;
 		            }
-		            if (ps != null ) {
-		                try { ps.close(); } catch (SQLException e) { ; }
-		                ps = null;
+		            if (stmt != null ) {
+		                try { stmt.close(); } catch (SQLException e) { ; }
+		                stmt = null;
 		            }
 		            if (conn != null ) {
 		                try { conn.close(); } catch (SQLException e) { ; }
@@ -89,8 +90,8 @@ public class OracleFuncionarioDAO implements FuncionarioDAO {
 		            }
 		        }
 		        return null;
-		    }
-		    */
+		    
+		    
 	}
 
 }

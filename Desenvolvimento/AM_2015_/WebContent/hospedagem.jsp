@@ -56,6 +56,7 @@
 					<div class=row>
 						<div class="col-md-6">
 							<h3 class="text-left">Dados da Reserva:</h3>
+							<input type="text" value="${user.id}" hidden="true"> 
 					<br>	
 						<label for="idReserva">Nº da Reserva:</label> 
 							<input readonly="true" type="text" name="idReserva" value="${reserva.idReserva}">
@@ -178,6 +179,15 @@
 	  	
 	  	
 	</div>
+	
+	<c:choose>
+    <c:when test="${user eq null}">
+        <jsp:forward page="erroLogin.jsp" />
+    </c:when>
+    <c:otherwise>
+        <p>Bem-vindo ${user.nome}, ${user.id}</p>
+    </c:otherwise>
+    </c:choose>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
