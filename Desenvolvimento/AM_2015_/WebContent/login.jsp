@@ -11,14 +11,14 @@
 	
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="estilo.css" />
+<link rel="stylesheet" type="text/css" href="css/estilo.css" />
 <title>Hotel Boa Viagem Login</title>
 </head>
 <body>
 
 	<div class="wrappp">
-		<p>Para efetuar login usuario = ltpweb</p>
-		<p>Para efetuar login senha = 123456</p>
+		<p><h3>Para efetuar login usuario = ltpweb</h3></p>
+		<p><h3>Para efetuar login senha = 123456</h3></p>
 	</div>
 
 	<h1 class="wrapp">Favor informar Login e senha</h1>

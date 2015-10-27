@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -27,7 +26,8 @@
 				<li><a href="consumo.jsp?lista=false">Consumo </a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="login.jsp">Logout <span
+				<li><a>Bem vindo ${user.nome} ID: ${user.id}</a></li> 
+				<li><a href="logoff.jsp">Logout <span
 						class="glyphicon glyphicon-flag"></span></a></li>
 			</ul>
 		</div>
