@@ -4,14 +4,22 @@ import br.com.tdss.am.classea.dao.impl.OracleClienteDAO;
 import br.com.tdss.am.classea.dao.impl.OracleConsumoDao;
 import br.com.tdss.am.classea.dao.impl.OracleFuncionarioDAO;
 import br.com.tdss.am.classea.dao.impl.OracleHospedagemDao;
+import br.com.tdss.am.classea.dao.impl.OracleProdutoServicoDAO;
 import br.com.tdss.am.classea.dao.impl.OracleQuartoDAO;
 import br.com.tdss.am.classea.dao.impl.OracleReservaDAO;
 import br.com.tdss.am.classea.dao.interfaces.ClienteDao;
 import br.com.tdss.am.classea.dao.interfaces.ConsumoDao;
 import br.com.tdss.am.classea.dao.interfaces.FuncionarioDAO;
 import br.com.tdss.am.classea.dao.interfaces.HospedagemDao;
+import br.com.tdss.am.classea.dao.interfaces.ProdutoServicoDAO;
 import br.com.tdss.am.classea.dao.interfaces.QuartoDao;
 import br.com.tdss.am.classea.dao.interfaces.ReservaDAO;
+import br.com.tdss.am.classea.entity.Cliente;
+import br.com.tdss.am.classea.entity.Consumo;
+import br.com.tdss.am.classea.entity.Funcionario;
+import br.com.tdss.am.classea.entity.Hospedagem;
+import br.com.tdss.am.classea.entity.Quarto;
+import br.com.tdss.am.classea.entity.Reserva;
 
 /**
  * Fabrica de DAOs<br/>
@@ -42,6 +50,9 @@ public abstract class DaoFactory {
 		return new OracleClienteDAO();
 	}
 	
+	public static ProdutoServicoDAO getProdutoServicoDAO(){
+		return new OracleProdutoServicoDAO();
+	}
 	/**
 	 * @return Implementação de {@link Funcionario}
 	 * @see br.com.tdss.am.classea.dao.impl.OracleFuncionarioDAO
