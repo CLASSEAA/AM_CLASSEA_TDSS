@@ -16,7 +16,7 @@ function checkParametrosUrl(){
 	var listaParametros = parametrosDaUrl.split("&");
 
 	for (var i = 0; i < listaParametros.length; i++) {
-		if(listaParametros[i] == "produtoservico=false"){
+		if(listaParametros[i] == "lista=false"){
 			document.forms["form-lista-produto"].submit();
 		} else if(listaParametros[i] == "hospedagem=true"){
 			$('#consumo-content').show();
