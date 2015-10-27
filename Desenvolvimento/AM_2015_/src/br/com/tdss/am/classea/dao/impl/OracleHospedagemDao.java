@@ -31,12 +31,7 @@ public class OracleHospedagemDao implements HospedagemDao {
 		try {
 			conn = ConnectionManager.getInstance().getConnection();
 			
-			PreparedStatement stmt = conn.prepareStatement
-					("INSERT INTO T_AM_HOSPEDAGEM "
-					+ "(ID_HOSPEDAGEM, NR_QUARTO, ID_RESERVA, ID_CLIENTE, ID_FUNCIONARIO,"
-					+ " VL_PERC_DESCONTO, DT_ENTRADA)"
-					+ " VALUES"
-					+ " (SQ_AM_HOSPEDAGEM.NEXTVAL, ?, ?, ?, ?, 0, to_date(?,'yyyymmdd'))");
+			PreparedStatement stmt = conn.prepareStatement("INSERT INTO T_AM_CLA_HOSPEDAGEM (ID_HOSPEDAGEM, NR_QUARTO, ID_RESERVA, ID_CLIENTE, ID_FUNCIONARIO, VL_PERC_DESCONTO, DT_ENTRADA) VALUES (SQ_AM_HOSPEDAGEM.NEXTVAL, ?, ?, ?, ?, 0, to_date(?,'DDMMYYYY'))");
 			
 			stmt.setInt(1, hospedagem.getQuarto().getNumero());
 			stmt.setInt(2, hospedagem.getReserva().getIdReserva());

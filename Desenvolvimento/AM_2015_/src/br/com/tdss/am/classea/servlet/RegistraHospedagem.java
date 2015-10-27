@@ -35,6 +35,8 @@ public class RegistraHospedagem extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		try {
 			Util util = new Util();
+			String data = util.buscarDataAtual();
+			data = data.replace("/", "");
 			Hospedagem hospedagem = new Hospedagem();
 			OracleHospedagemDao hospedagemDAO = new OracleHospedagemDao();
 			// Recebendo idReserva e buscando reserva a partir deste ID recebido
@@ -47,19 +49,15 @@ public class RegistraHospedagem extends HttpServlet {
 					.size(); i++) {
 				hospedagem.setReserva(reservaDAO.buscarReservar(reserva));
 				hospedagem.setFuncionario(reserva.getFuncionario());
-				hospedagem.setQuarto(reserva.getQuartos().get(i));
-				hospedagem.setDataEntrada(util.buscarDataAtual());
+				hospedagem.setQuarto(reservaDAO.buscarReservar(reserva).getQuartos().get(i));
+				hospedagem.setDataEntrada(data);
 				
 				//Incluir no banco
 				hospedagemDAO.incluirHospedagem(hospedagem, hospedagem.getFuncionario());
 				
 			}
-			
-			PrintWriter out = response.getWriter();
-			out.append("<html><body>");
-			// out.append(""+id);
-			out.append("</body></html>");
-
+			System.out.println("aee");
+			System.out.println("Concluído");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
