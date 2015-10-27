@@ -25,7 +25,7 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li><a href="hospedagem.jsp">Hospedagem</a></li>
-				<li><a href="consumo.jsp">Consumo </a></li>
+				<li><a href="consumo.jsp?lista=false">Consumo </a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="login.jsp">Logout <span
