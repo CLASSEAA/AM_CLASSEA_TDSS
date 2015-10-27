@@ -3,7 +3,7 @@ package br.com.tdss.am.classea.entity;
  * TO - Funcionario
  * */
 public class Funcionario extends Pessoa {
-
+	
 	private String dt_admissao;
 	private String ds_cargo;
 

@@ -49,6 +49,48 @@ public class OracleFuncionarioDAO implements FuncionarioDAO {
 				System.out.println(e.getMessage());
 			}
 		}
+		
+		/* Funcionario getFuncionario(String login, String senha) {
+		        conn = ConnectionManager.getInstance().getConnection();
+		        PreparedStatement ps = null;
+		        ResultSet rs = null;
+		        try{
+		            ps = conn.prepareStatement("select id, nome from usuario where login = ? and senha = ?");
+		            ps.setString(1, login);
+		            ps.setString(2, senha);
+		 
+		            rs = ps.executeQuery();
+		 
+		            if ( rs.next() ){
+		                Funcionario func = new Funcionario();
+		                func.setId( rs.getInt("id") );
+		                func.setLogin(login);
+		                func.setSenha(senha);
+		                func.setNome( rs.getString("nome") );
+		 
+		                return func;
+		            }
+		        }
+		        catch (SQLException e){
+		            e.printStackTrace();
+		        }
+		        finally{
+		            if (rs != null ) {
+		                try { rs.close(); } catch (SQLException e) { ; }
+		                rs = null;
+		            }
+		            if (ps != null ) {
+		                try { ps.close(); } catch (SQLException e) { ; }
+		                ps = null;
+		            }
+		            if (conn != null ) {
+		                try { conn.close(); } catch (SQLException e) { ; }
+		                conn = null;
+		            }
+		        }
+		        return null;
+		    }
+		    */
 	}
 
 }
