@@ -39,6 +39,7 @@ public class ListaConsumo extends HttpServlet {
 			ConsumoBO consumoBO = new ConsumoBO();
 			ArrayList<Consumo> consumo = consumoBO.listarConsumo(hospedagem);
 			getServletContext().setAttribute("consumoHospedagem", consumo);
+			getServletContext().setAttribute("hospedagem", hospedagem);
 			response.sendRedirect("consumo.jsp?hospedagem=true");
 		} catch (Exception e) {
 			response.sendRedirect("consumo.jsp?hospedagem=false");

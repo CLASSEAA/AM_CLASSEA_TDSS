@@ -20,6 +20,13 @@ function checkParametrosUrl(){
 			document.forms["form-lista-produto"].submit();
 		} else if(listaParametros[i] == "hospedagem=true"){
 			$('#consumo-content').show();
+		} else if(listaParametros[i] == "hospedagem=false"){
+			$('#modalErroHospedagem').modal('show');
+		} else if(listaParametros[i] == "consumo=false"){
+			$('#modalErroConsumo').modal('show');
+		} else if(listaParametros[i] == "consumo=true"){
+			$('#consumo-content').hide();
+			$('#modalSucessoConsumo').modal('show');
 		}
 	}
 }

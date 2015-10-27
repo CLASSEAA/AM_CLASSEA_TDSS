@@ -33,16 +33,17 @@ public class OracleConsumoDao implements ConsumoDao {
 			PreparedStatement stmt = conn
 					.prepareStatement("INSERT INTO T_AM_CLA_CONSUMO (ID_CONSUMO,"
 							+ " ID_HOSPEDAGEM, ID_TIPO_SERVICO, ID_FUNCIONARIO, DT_CONSUMO, QT_CONSUMIDA)"
-							+ "VALUES (SQ_AM_CONSUMO.NEXTVAL, ?, ?, ?, ?, ?)");
+							+ "VALUES (SQ_AM_CONSUMO.NEXTVAL, ?, ?, ?, TO_CHAR(SYSDATE, 'DDMMYY'), ?)");
 
 			stmt.setInt(1, hospedagem.getIdHospedagem());
 			stmt.setInt(2, consumo.getProdutoServico().getIdTipoServico());
 			stmt.setInt(3, funcionario.getIdPessoa());
-			stmt.setString(4, consumo.getData());
-			stmt.setInt(5, consumo.getQuantidade());
+			stmt.setInt(4, consumo.getQuantidade());
 
 			stmt.executeUpdate();
+			conn.commit();
 		} catch (SQLException e) {
+			conn.rollback();
 			e.printStackTrace();
 			throw new SQLException("Erro ao registrar no banco");
 		} finally {
@@ -90,7 +91,7 @@ public class OracleConsumoDao implements ConsumoDao {
 							+ "INNER JOIN T_AM_CLA_HIST_PRECO HP "
 							+ "ON (PS.ID_TIPO_SERVICO = HP.ID_TIPO_SERVICO) "
 							+ "WHERE CS.ID_HOSPEDAGEM = ? "
-							+ "AND TO_CHAR(HP.DT_VALIDADE, 'YYYYMMDD') >= TO_CHAR(CS.DT_CONSUMO, 'YYYYMMDD')");
+							+ "AND TO_CHAR(HP.DT_VALIDADE, 'YYYYMMDD') >= '20150131'");
 
 			stmt.setInt(1, hospedagem.getIdHospedagem());
 			ResultSet rs = stmt.executeQuery();

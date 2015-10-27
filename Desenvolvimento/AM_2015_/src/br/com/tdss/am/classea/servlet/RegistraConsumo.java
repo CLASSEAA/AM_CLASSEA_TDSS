@@ -37,10 +37,10 @@ public class RegistraConsumo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			int idHospedagem = Integer.parseInt(getInitParameter("idHospedagem"));
-			int idFuncionario = Integer.parseInt(getInitParameter("idFuncionario"));
-			int idProdutoServico = Integer.parseInt(getInitParameter("idProdutoServico"));
-			int quantidade = Integer.parseInt(getInitParameter("quantidade"));
+			int idHospedagem = Integer.parseInt(request.getParameter("idHospedagem"));
+			int idFuncionario = Integer.parseInt(request.getParameter("idFuncionario"));
+			int idProdutoServico = Integer.parseInt(request.getParameter("select-produto"));
+			int quantidade = Integer.parseInt(request.getParameter("quantidade"));
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTimeInMillis(System.currentTimeMillis());
 			
@@ -66,7 +66,7 @@ public class RegistraConsumo extends HttpServlet {
 			
 			response.sendRedirect("consumo.jsp?consumo=true");
 		} catch (Exception e) {
-
+			e.printStackTrace();
 			response.sendRedirect("consumo.jsp?consumo=false");
 		}
 	}

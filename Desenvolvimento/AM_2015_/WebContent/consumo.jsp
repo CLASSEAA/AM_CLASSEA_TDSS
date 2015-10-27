@@ -51,7 +51,7 @@
 		
 	</div>
 	
-			<div class="container" id="consumo-content">
+		<div class="container" id="consumo-content">
 			<div class="row">
 				<div class="col-md-6">
 					<table id="t-consumo" class="table-striped">
@@ -80,21 +80,22 @@
 					</table>
 				</div>
 				<div class="col-md-6">
-					<form>
+					<form action="RegistraConsumo" method="get">
 						<div class="form-group">
 						<label for="select-produto">Produto: </label>
 						<select name="select-produto">
 						<c:forEach var="i" items="${produtoServico}">	
-								<option name="psl" id="${i.idTipoServico}">${i.descricao}</option>
+								<option value="${i.idTipoServico}">${i.descricao}</option>
 						</c:forEach>
 						</select>
 						<br>
 						<label for="quantidade">Quantidade: </label>
 						<input type="text" name="quantidade">
+						<input hidden="true" type="text" name="idFuncionario" value="${user.id}">
+						<input hidden="true" type="text" name="idHospedagem" value="${hospedagem.idHospedagem}">
 						<br>
 						</div>
 						<hr>						
-						<button>Incluir outro produto</button>
 						<button>Registrar Consumo</button>
 					</form>
 					
@@ -104,11 +105,75 @@
 			<hr>
 		</div>
 		
+		<div class="container">
+			<div class="modal fade" id="modalErroHospedagem" role="dialog">
+	    		<div class="modal-dialog">
+	      			<div class="modal-content">
+	        			<div class="modal-header">
+	          				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          				<h4 class="modal-title">Hospedagem não Encontrada</h4>
+		    			</div>
+		       			<div class="modal-body">
+	        	  			<p>Verifique o número e tente novamente</p>
+	        			</div>
+	        			<div class="modal-footer">
+	          				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	        			</div>
+	      			</div>
+   			 	</div>
+  			</div>
+
+			<div class="modal fade" id="modalErroConsumo" role="dialog">
+	    		<div class="modal-dialog">
+	      			<div class="modal-content">
+	        			<div class="modal-header">
+	          				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          				<h4 class="modal-title">Erro ao registrar consumo</h4>
+		    			</div>
+		       			<div class="modal-body">
+	        	  			<p>Verifique os campos e tente novamente</p>
+	        			</div>
+	        			<div class="modal-footer">
+	          				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	        			</div>
+	      			</div>
+   			 	</div>
+  			</div>
+  			
+  						<div class="modal fade" id="modalSucessoConsumo" role="dialog">
+	    		<div class="modal-dialog">
+	      			<div class="modal-content">
+	        			<div class="modal-header">
+	          				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          				<h4 class="modal-title">Consumo Registrado com sucesso</h4>
+		    			</div>
+		       			<div class="modal-body">
+	        	  			<p>feche a janela e retone a aplicação</p>
+	        			</div>
+	        			<div class="modal-footer">
+	          				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	        			</div>
+	      			</div>
+   			 	</div>
+  			</div>
+  			
+		</div>
+		
 		<div hidden="true" id="div-lista-produto">
 			<form action="ListaProdutoServico" method="get" id="form-lista-produto">
 				<input name="x" type=submit>
 			</form>	
 		</div>
+		
+	<c:choose>
+    <c:when test="${user eq null}">
+        <jsp:forward page="erroLogin.jsp" />
+    </c:when>
+    <c:otherwise>
+        <p>Bem-vindo ${user.nome}, ${user.id}</p>
+    </c:otherwise>
+    </c:choose>
+    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 	</script>
 	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js">
