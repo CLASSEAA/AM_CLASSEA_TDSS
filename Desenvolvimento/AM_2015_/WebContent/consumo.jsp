@@ -35,9 +35,9 @@
 	</div>
 	</nav>
 	<div class="jumbotron">
-		<h3>Controle de Consumo</h3>
-			<br>	
 		<div class="container">
+			<h3>Controle de Consumo</h3>
+			<br>	
 			<form action="ListaConsumo" method="get">
 				<div class="col-xs-4">
 				<div class="form-group">

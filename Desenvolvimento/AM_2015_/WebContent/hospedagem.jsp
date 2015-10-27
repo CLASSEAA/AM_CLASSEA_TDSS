@@ -34,9 +34,9 @@
 	</div>
 	</nav>
 	<div class="jumbotron">
-		<h2>Controle de hospedagem</h2>
-		</br>
 		<div class="container">
+			<h3>Controle de Hospedagem</h3	>
+			<br>
 			<form action="BuscaReserva" method="get">
 				<div class="col-xs-4">
 					<div class="form-group">
