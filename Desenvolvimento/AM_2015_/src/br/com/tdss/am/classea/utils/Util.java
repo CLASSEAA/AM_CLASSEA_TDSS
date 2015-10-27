@@ -17,19 +17,12 @@ public class Util {
 	 * */
 	public static boolean compararDatas(String dataHospedagem, String dataInicioReserva){
 		
-		SimpleDateFormat h = new SimpleDateFormat("YYMMDD");
-		SimpleDateFormat r = new SimpleDateFormat("YYMMDD");
+		SimpleDateFormat h = new SimpleDateFormat("DDMMYYYY");
+		SimpleDateFormat r = new SimpleDateFormat("DDMMYYYY");
 		
 		try {
-			Date dH = h.parse(converterData(dataHospedagem));
-			Date dR = r.parse(converterData(dataInicioReserva));
-			Calendar cH = Calendar.getInstance();
-			Calendar cR = Calendar.getInstance();
-			cH.setTime(dH);
-			cR.setTime(dR);
-			Calendar cRL = cR;
-			cRL.add(Calendar.DATE, 1);
-			if(cH == cR || cH == cRL){
+			
+			if(dataHospedagem.equals(dataInicioReserva)){
 				return true;
 			} else {
 				return false;
@@ -42,13 +35,13 @@ public class Util {
 	}
 	
 	private static String converterData(String data){
-		String dia = data.substring(0, 1);
-		String mes = data.substring(3,4);
-		String ano = data.substring(5, 6);
+		String dia = data.substring(0, 2);
+		String mes = data.substring(3,5);
+		String ano = data.substring(6, 10);
 		
 		
 				
-		String d = ano + mes + dia; 
+		String d = dia + mes + ano; 
 
 		return d;
 		

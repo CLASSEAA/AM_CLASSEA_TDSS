@@ -40,7 +40,7 @@ public class OracleHospedagemDao implements HospedagemDao {
 			stmt.setString(5, hospedagem.getDataEntrada());
 			
 			stmt.execute();
-			
+			conn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new SQLException("Erro ao conectar com o banco");

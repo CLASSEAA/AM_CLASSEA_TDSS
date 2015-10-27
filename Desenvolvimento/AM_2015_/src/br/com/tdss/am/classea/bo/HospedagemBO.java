@@ -17,6 +17,7 @@ public class HospedagemBO {
 		if (!Util.compararDatas(hospedagem.getDataEntrada(), hospedagem.getReserva().getDataInicio())) {
 			throw new Exception("A data de hospedagem excede o limite da reserva");
 		}
+		hospedagem.setDataEntrada(hospedagem.getDataEntrada().replace("/", ""));
 
 		HospedagemDao hospedagemDao = DaoFactory.getHospedagemDao();
 		hospedagemDao.incluirHospedagem(hospedagem, funcionario);

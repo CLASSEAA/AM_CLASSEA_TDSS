@@ -30,7 +30,6 @@ public class RegistraHospedagem extends HttpServlet {
 		try {
 			Util util = new Util();
 			String data = util.buscarDataAtual();
-			data = data.replace("/", "");
 			Hospedagem hospedagem = new Hospedagem();
 			HospedagemBO hospedagemBO = new HospedagemBO();
 
@@ -47,14 +46,12 @@ public class RegistraHospedagem extends HttpServlet {
 				hospedagem.setQuarto(reservaBO.buscarReserva(reserva)
 						.getQuartos().get(i));
 				hospedagem.setDataEntrada(data);
-
+				hospedagem.getDataEntrada();
 				// Incluir no banco
 				hospedagemBO.incluirHospedagem(hospedagem,
 						hospedagem.getFuncionario());
 
 			}
-			System.out.println("aee");
-			System.out.println("Concluído");
 			response.sendRedirect("hospedagem.jsp?hospedagem=true");
 		} catch (Exception e) {
 			response.sendRedirect("hospedagem.jsp?hospedagem=false");
