@@ -8,8 +8,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js">
 	
 </script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
-	
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">	
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hotel Boa Viagem Hospedagem</title>
@@ -51,7 +50,7 @@
 
 	</div>
 
-	<div class="container">
+	<div class="container" id="main-content">
 		<div class="row">
 			<form action="RegistraHospedagem" method="get">
 					<div class=row>
@@ -126,15 +125,15 @@
 	</div>
 	
 	<div class="container">
-	<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal fade" id="modalReserva" role="dialog">
 	    <div class="modal-dialog">
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title">Numero da reserva invalido!</h4>
+	          <h4 class="modal-title">Reserva não encontrada</h4>
 		    </div>
 		       <div class="modal-body">
-	        	  <p>Por favor informe um numero de reserva valido.</p>
+	        	  <p>Por favor informe um numero de reserva válido.</p>
 	        </div>
 	        <div class="modal-footer">
 	          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -143,7 +142,7 @@
    			 </div>
   		</div>
   		
-  	<div class="modal fade" id="myModal" role="dialog">
+  	<div class="modal fade" id="modalSucessoHospedagem" role="dialog">
 	    <div class="modal-dialog">
 	      <div class="modal-content">
 	        <div class="modal-header">
@@ -160,7 +159,7 @@
    			 </div>
   		</div>
   		
-  	<div class="modal fade" id="myModal" role="dialog">
+  	<div class="modal fade" id="modalErroHospedagem" role="dialog">
 	    <div class="modal-dialog">
 	      <div class="modal-content">
 	        <div class="modal-header">
@@ -176,11 +175,12 @@
 	      </div>
    			 </div>
   		</div>
-	  		
-  		
+	  	
+	  	
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/hospedagem.js"></script>
 </body>
 </html>

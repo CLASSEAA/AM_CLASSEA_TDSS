@@ -90,12 +90,17 @@
 				</div>
 			</div>
 		</div>
+		
+		<div hidden="true" id="div-lista-produto">
+			<form action="ListaProdutoServico" method="get" id="form-lista-produto">
+				<input name="x" type=submit>
+			</form>	
+		</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 	</script>
 	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js">
-		
 	</script>
-
+	<script src="js/consumo.js"></script>
 
 
 </body>

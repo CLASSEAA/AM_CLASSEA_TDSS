@@ -58,14 +58,11 @@ public class RegistraHospedagem extends HttpServlet {
 			}
 			System.out.println("aee");
 			System.out.println("Concluído");
+			response.sendRedirect("hospedagem.jsp?hospedagem=true");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			response.sendRedirect("hospedagem.jsp?hospedagem=false");
 			e.printStackTrace();
 			}
 		}
-
-	public static void main(String[] args) {
-		System.out.println("AI VITOR VAI TOMA NO CÚ");
-	}
 
 }

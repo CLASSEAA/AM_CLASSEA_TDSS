@@ -12,9 +12,9 @@ import br.com.tdss.am.classea.entity.ProdutoServico;
 public class OracleProdutoServicoDAO implements ProdutoServicoDAO {
 
 	private static String SQL_LISTA = "SElECT PS.ID_TIPO_SERVICO, PS.DS_SERVICO, HP.VL_PRECO FROM T_AM_CLA_PRODUTO_SERVICO PS"
-			+ " INNER JOIN T_AM_CLA_HIST PRECO HP"
+			+ " INNER JOIN T_AM_CLA_HIST_PRECO HP"
 			+ " ON (PS.ID_TIPO_SERVICO = HP.ID_TIPO_SERVICO)"
-			+ " TO_CHAR(HP.DT_VALIDADE, 'YYYYMMDD') >= '20150131')";
+			+ " WHERE TO_CHAR(HP.DT_VALIDADE, 'YYYYMMDD') >= '20150131'";
 	
 	@Override
 	public ArrayList<ProdutoServico> listarProdutoServico() throws SQLException {

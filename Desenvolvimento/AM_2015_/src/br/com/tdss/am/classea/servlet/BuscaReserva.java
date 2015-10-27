@@ -43,7 +43,7 @@ public class BuscaReserva extends HttpServlet {
 				response.sendRedirect("hospedagem.jsp?reserva=false");
 			} else {
 				getServletContext().setAttribute("reserva", reserva);
-				response.sendRedirect("hospedagem.jsp");
+				response.sendRedirect("hospedagem.jsp?reserva=true");
 			}
 		} catch (Exception e) {
 			response.sendRedirect("hospedagem.jsp?reserva=false");
