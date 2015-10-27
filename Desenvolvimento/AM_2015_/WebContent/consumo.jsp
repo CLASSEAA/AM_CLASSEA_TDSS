@@ -53,7 +53,7 @@
 	
 			<div class="container" id="consumo-content">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-6">
 					<table id="t-consumo" class="table-striped">
 						 <thead>
 							<tr>
@@ -79,16 +79,29 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<form>
-						<select>
+						<div class="form-group">
+						<label for="select-produto">Produto: </label>
+						<select name="select-produto">
 						<c:forEach var="i" items="${produtoServico}">	
-								<option name="ps" id="${i.idTipoServico}">${i.descricao}</option>
+								<option name="psl" id="${i.idTipoServico}">${i.descricao}</option>
 						</c:forEach>
 						</select>
+						<br>
+						<label for="quantidade">Quantidade: </label>
+						<input type="text" name="quantidade">
+						<br>
+						</div>
+						<hr>						
+						<button>Incluir outro produto</button>
+						<button>Registrar Consumo</button>
 					</form>
+					
+					
 				</div>
 			</div>
+			<hr>
 		</div>
 		
 		<div hidden="true" id="div-lista-produto">
