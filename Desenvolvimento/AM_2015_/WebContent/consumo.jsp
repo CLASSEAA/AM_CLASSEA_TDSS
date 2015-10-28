@@ -28,7 +28,7 @@
 				<li><a href="consumo.jsp?lista=false">Consumo </a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="login.jsp">Logout <span
+				<li><a href="logoff.jsp">Logout <span
 						class="glyphicon glyphicon-flag"></span></a></li>
 			</ul>
 		</div>

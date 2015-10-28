@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,9 +27,9 @@
 	<form action="ValidarLogin" method="post" class="wrap">
 		<div class="col-xs-4">
 			<label>Login: </label>
-			 <input class="form-control" type="text" name="login" placeholder="login">
+			 <input class="form-control" type="text" maxlength="20" name="login" placeholder="login" required="true">
 			 <label>Senha: </label>
-			 <input class="form-control" type="password" name="senha" placeholder="senha">
+			 <input class="form-control" type="password" maxlength="20" name="senha" placeholder="senha" required="true">
 			 </br>
 			 <button type="submit" value="login" class="btn btn-default">Entrar</button>
 		</div>
@@ -41,5 +41,6 @@
 	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js">
 		
 	</script>
+	<script src="js/login.js"></script>
 </body>
 </html>
