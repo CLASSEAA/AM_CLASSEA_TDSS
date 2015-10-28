@@ -151,7 +151,7 @@
 	          <h4 class="modal-title">Hospedagem Confirmada com sucesso!</h4>
 		    </div>
 		       <div class="modal-body">
-		       <c:forEach var="ix" items="${hospedagens}">
+		       <c:forEach var="x" items="${hospedagens}">
 		       		<p>Quarto: ${x.quarto.numero} ; Código da Hospedagem: ${x.idHospedagem}
 		       </p></c:forEach>
 	        </div>
