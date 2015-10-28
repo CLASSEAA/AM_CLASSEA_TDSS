@@ -151,7 +151,9 @@
 	          <h4 class="modal-title">Hospedagem Confirmada com sucesso!</h4>
 		    </div>
 		       <div class="modal-body">
-	        	  <p>Numero da Hospedagem</p>
+		       <c:forEach var="idHosp" items="${idHosp}" varStatus="loop">
+		       		<p>Numero da Hospedagem: ${idHosp.get(${loop.index})}
+		       </p></c:forEach>
 	        </div>
 	        <div class="modal-footer">
 	          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>

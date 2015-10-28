@@ -1,16 +1,21 @@
 package br.com.tdss.am.classea.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.connector.Request;
 
 import br.com.tdss.am.classea.bo.HospedagemBO;
 import br.com.tdss.am.classea.bo.ReservaBO;
 import br.com.tdss.am.classea.entity.Hospedagem;
+import br.com.tdss.am.classea.entity.Quarto;
 import br.com.tdss.am.classea.entity.Reserva;
 import br.com.tdss.am.classea.utils.Util;
 
@@ -32,7 +37,8 @@ public class RegistraHospedagem extends HttpServlet {
 			String data = util.buscarDataAtual();
 			Hospedagem hospedagem = new Hospedagem();
 			HospedagemBO hospedagemBO = new HospedagemBO();
-
+			ArrayList<Integer> listIdHospedagem = new ArrayList<Integer>();
+			
 			// Recebendo idReserva e buscando reserva a partir deste ID recebido
 			int idReserva = Integer.parseInt(request.getParameter("idReserva"));
 			Reserva reserva = new Reserva();
@@ -48,10 +54,11 @@ public class RegistraHospedagem extends HttpServlet {
 				hospedagem.setDataEntrada(data);
 				hospedagem.getDataEntrada();
 				// Incluir no banco
-				hospedagemBO.incluirHospedagem(hospedagem,
+				int idHospedagem = hospedagemBO.incluirHospedagem(hospedagem,
 						hospedagem.getFuncionario());
-
+				listIdHospedagem.add(idHospedagem);
 			}
+			request.setAttribute("idHosp", listIdHospedagem);
 			response.sendRedirect("hospedagem.jsp?hospedagem=true");
 		} catch (Exception e) {
 			response.sendRedirect("hospedagem.jsp?hospedagem=false");

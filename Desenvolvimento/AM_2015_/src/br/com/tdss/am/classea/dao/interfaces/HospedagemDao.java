@@ -12,8 +12,9 @@ public interface HospedagemDao {
 
 	/**
 	 * Metodo para incluir {@link Hospedagem}
+	 * @return 
 	 * */
-	public void incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws SQLException;
+	public int incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws SQLException;
 	
 	/**
 	 * Metodo para buscar {@link Hospedagem}

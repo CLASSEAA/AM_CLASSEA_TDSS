@@ -8,7 +8,7 @@ import br.com.tdss.am.classea.utils.Util;
 
 public class HospedagemBO {
 
-	public void incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws Exception {
+	public int incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws Exception {
 
 		if (hospedagem.getReserva() == null) {
 			throw new Exception("A hospedagem deve ter uma reserva associada");
@@ -20,7 +20,8 @@ public class HospedagemBO {
 		hospedagem.setDataEntrada(hospedagem.getDataEntrada().replace("/", ""));
 
 		HospedagemDao hospedagemDao = DaoFactory.getHospedagemDao();
-		hospedagemDao.incluirHospedagem(hospedagem, funcionario);
+		int idEntrada = hospedagemDao.incluirHospedagem(hospedagem, funcionario);
+		return idEntrada;
 	}
 
 	public Hospedagem buscarHospedagem(int idHospedagem) throws Exception {

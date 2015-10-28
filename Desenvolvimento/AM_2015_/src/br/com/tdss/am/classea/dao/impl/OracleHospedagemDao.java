@@ -25,13 +25,13 @@ public class OracleHospedagemDao implements HospedagemDao {
 	 * @throws SQLException
 	 * */
 	@Override
-	public void incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws SQLException {
+	public int incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws SQLException {
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionManager.getInstance().getConnection();
 			
-			PreparedStatement stmt = conn.prepareStatement("INSERT INTO T_AM_CLA_HOSPEDAGEM (ID_HOSPEDAGEM, NR_QUARTO, ID_RESERVA, ID_CLIENTE, ID_FUNCIONARIO, VL_PERC_DESCONTO, DT_ENTRADA) VALUES (SQ_AM_HOSPEDAGEM.NEXTVAL, ?, ?, ?, ?, 0, to_date(?,'DDMMYYYY'))");
+			PreparedStatement stmt = conn.prepareStatement(("INSERT INTO T_AM_CLA_HOSPEDAGEM (ID_HOSPEDAGEM, NR_QUARTO, ID_RESERVA, ID_CLIENTE, ID_FUNCIONARIO, VL_PERC_DESCONTO, DT_ENTRADA) VALUES (SQ_AM_HOSPEDAGEM.NEXTVAL, ?, ?, ?, ?, 0, to_date(?,'DDMMYYYY'))"),PreparedStatement.RETURN_GENERATED_KEYS);
 			
 			stmt.setInt(1, hospedagem.getQuarto().getNumero());
 			stmt.setInt(2, hospedagem.getReserva().getIdReserva());
@@ -39,11 +39,21 @@ public class OracleHospedagemDao implements HospedagemDao {
 			stmt.setInt(4, hospedagem.getReserva().getFuncionario().getIdPessoa());
 			stmt.setString(5, hospedagem.getDataEntrada());
 			
+			
+			
 			stmt.execute();
+			ResultSet rs = stmt.getGeneratedKeys();
+			int idHospedagem = 0;
+			if(rs.next()){
+				 idHospedagem = rs.getInt(1);
+			}
 			conn.commit();
+			
+			
+			return idHospedagem;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new SQLException("Erro ao conectar com o banco");
+			throw new SQLException("Erro ao conectar com o banco "+e.getMessage());
 		} finally {
 			if (conn != null) {
 				try {
