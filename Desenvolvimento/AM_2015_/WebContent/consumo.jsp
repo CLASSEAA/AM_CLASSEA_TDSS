@@ -165,7 +165,7 @@
 				<input name="x" type=submit>
 			</form>	
 		</div>
-		
+	 	
 	<c:choose>
     <c:when test="${user eq null}">
         <jsp:forward page="erroLogin.jsp" />
