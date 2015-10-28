@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import br.com.tdss.am.classea.entity.Funcionario;
 import br.com.tdss.am.classea.entity.Hospedagem;
+import br.com.tdss.am.classea.entity.Quarto;
 
 /**
  * Interface classe DAO da entidade {@link Hospedagem}
@@ -12,13 +13,13 @@ public interface HospedagemDao {
 
 	/**
 	 * Metodo para incluir {@link Hospedagem}
-	 * @return 
 	 * */
-	public int incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws SQLException;
+	public void incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws SQLException;
 	
 	/**
 	 * Metodo para buscar {@link Hospedagem}
 	 * @return {@link Hospedagem}
 	 * */
 	public Hospedagem buscarHospedagem(int idHospedagem) throws SQLException;
+	public Hospedagem buscarHospedagem(Quarto quarto) throws SQLException;
 }

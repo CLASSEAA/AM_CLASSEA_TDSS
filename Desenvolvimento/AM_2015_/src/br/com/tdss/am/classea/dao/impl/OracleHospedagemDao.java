@@ -25,13 +25,13 @@ public class OracleHospedagemDao implements HospedagemDao {
 	 * @throws SQLException
 	 * */
 	@Override
-	public int incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws SQLException {
+	public void incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws SQLException {
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionManager.getInstance().getConnection();
 			
-			PreparedStatement stmt = conn.prepareStatement(("INSERT INTO T_AM_CLA_HOSPEDAGEM (ID_HOSPEDAGEM, NR_QUARTO, ID_RESERVA, ID_CLIENTE, ID_FUNCIONARIO, VL_PERC_DESCONTO, DT_ENTRADA) VALUES (SQ_AM_HOSPEDAGEM.NEXTVAL, ?, ?, ?, ?, 0, to_date(?,'DDMMYYYY'))"),PreparedStatement.RETURN_GENERATED_KEYS);
+			PreparedStatement stmt = conn.prepareStatement("INSERT INTO T_AM_CLA_HOSPEDAGEM (ID_HOSPEDAGEM, NR_QUARTO, ID_RESERVA, ID_CLIENTE, ID_FUNCIONARIO, VL_PERC_DESCONTO, DT_ENTRADA) VALUES (SQ_AM_HOSPEDAGEM.NEXTVAL, ?, ?, ?, ?, 0, to_date(?,'DDMMYYYY'))");
 			
 			stmt.setInt(1, hospedagem.getQuarto().getNumero());
 			stmt.setInt(2, hospedagem.getReserva().getIdReserva());
@@ -39,21 +39,11 @@ public class OracleHospedagemDao implements HospedagemDao {
 			stmt.setInt(4, hospedagem.getReserva().getFuncionario().getIdPessoa());
 			stmt.setString(5, hospedagem.getDataEntrada());
 			
-			
-			
 			stmt.execute();
-			ResultSet rs = stmt.getGeneratedKeys();
-			int idHospedagem = 0;
-			if(rs.next()){
-				 idHospedagem = rs.getInt(1);
-			}
 			conn.commit();
-			
-			
-			return idHospedagem;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new SQLException("Erro ao conectar com o banco "+e.getMessage());
+			throw new SQLException("Erro ao conectar com o banco");
 		} finally {
 			if (conn != null) {
 				try {
@@ -128,6 +118,39 @@ public class OracleHospedagemDao implements HospedagemDao {
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	public Hospedagem buscarHospedagem(Quarto quarto) throws SQLException {
+		Connection conn = null;
+		try {
+			conn = ConnectionManager.getInstance().getConnection();
+			PreparedStatement stmt = conn.prepareStatement("SELECT ID_HOSPEDAGEM"
+					+ " FROM T_AM_CLA_HOSPEDAGEM"
+					+ " WHERE NR_QUARTO = ?"
+					+ " AND ROWNUM = 1"
+					+ " ORDER BY ID_HOSPEDAGEM DESC");
+			stmt.setInt(1, quarto.getNumero());
+			ResultSet rs = stmt.executeQuery();
+			Hospedagem hospedagem = new Hospedagem();
+			while (rs.next()) {
+				hospedagem.setIdHospedagem(rs.getInt("ID_HOSPEDAGEM"));	
+			}
+			hospedagem.setQuarto(quarto);
+			return hospedagem;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new SQLException("Erro ao conectar com BD");
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e2) {
+					throw new SQLException("Erro ao fechar conexão");
+				}
+			}
+		}
+	
 	}
 
 	

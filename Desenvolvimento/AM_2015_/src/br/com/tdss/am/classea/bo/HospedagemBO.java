@@ -4,11 +4,12 @@ import br.com.tdss.am.classea.dao.DaoFactory;
 import br.com.tdss.am.classea.dao.interfaces.HospedagemDao;
 import br.com.tdss.am.classea.entity.Funcionario;
 import br.com.tdss.am.classea.entity.Hospedagem;
+import br.com.tdss.am.classea.entity.Quarto;
 import br.com.tdss.am.classea.utils.Util;
 
 public class HospedagemBO {
 
-	public int incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws Exception {
+	public void incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws Exception {
 
 		if (hospedagem.getReserva() == null) {
 			throw new Exception("A hospedagem deve ter uma reserva associada");
@@ -20,8 +21,7 @@ public class HospedagemBO {
 		hospedagem.setDataEntrada(hospedagem.getDataEntrada().replace("/", ""));
 
 		HospedagemDao hospedagemDao = DaoFactory.getHospedagemDao();
-		int idEntrada = hospedagemDao.incluirHospedagem(hospedagem, funcionario);
-		return idEntrada;
+		hospedagemDao.incluirHospedagem(hospedagem, funcionario);
 	}
 
 	public Hospedagem buscarHospedagem(int idHospedagem) throws Exception {
@@ -30,4 +30,9 @@ public class HospedagemBO {
 		return hospedagem;
 	}
 
+	public Hospedagem buscarHospedagem(Quarto quarto) throws Exception{
+		HospedagemDao hospedagemDao = DaoFactory.getHospedagemDao();
+		Hospedagem hospedagem = hospedagemDao.buscarHospedagem(quarto);
+		return hospedagem;
+	}
 }
