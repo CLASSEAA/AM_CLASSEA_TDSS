@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Hotel Boa Viagem</a>
@@ -26,7 +26,7 @@
 				<li><a href="consumo.jsp?lista=false">Consumo </a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a>Bem vindo ${user.nome} ID: ${user.id}</a></li> 
+				<li><a>Bem-vindo Funcionario: ${user.nome}, ID: ${user.id}</a></li> 
 				<li><a href="logoff.jsp">Logout <span
 						class="glyphicon glyphicon-flag"></span></a></li>
 			</ul>
@@ -187,7 +187,7 @@
         <jsp:forward page="erroLogin.jsp" />
     </c:when>
     <c:otherwise>
-        <p>Bem-vindo ${user.nome}, ${user.id}</p>
+        <p></p>
     </c:otherwise>
     </c:choose>
 	
