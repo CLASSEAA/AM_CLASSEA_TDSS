@@ -12,9 +12,10 @@
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+<link rel="stylesheet" type="text/css" href="css/login.css" />
 <title>Hotel Boa Viagem Login</title>
 </head>
-<body>
+<body background="img/citylights.jpg">
 
 	<div class="wrappp">
 		<p><h3>Para efetuar login usuario = ltpweb</h3></p>
