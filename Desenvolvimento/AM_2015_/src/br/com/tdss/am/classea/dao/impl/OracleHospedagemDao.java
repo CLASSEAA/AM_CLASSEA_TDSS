@@ -125,11 +125,7 @@ public class OracleHospedagemDao implements HospedagemDao {
 		Connection conn = null;
 		try {
 			conn = ConnectionManager.getInstance().getConnection();
-			PreparedStatement stmt = conn.prepareStatement("SELECT ID_HOSPEDAGEM"
-					+ " FROM T_AM_CLA_HOSPEDAGEM"
-					+ " WHERE NR_QUARTO = ?"
-					+ " AND ROWNUM = 1"
-					+ " ORDER BY ID_HOSPEDAGEM DESC");
+			PreparedStatement stmt = conn.prepareStatement("SELECT MAX(ID_HOSPEDAGEM) FROM T_AM_CLA_HOSPEDAGEM WHERE NR_QUARTO = 1");
 			stmt.setInt(1, quarto.getNumero());
 			ResultSet rs = stmt.executeQuery();
 			Hospedagem hospedagem = new Hospedagem();

@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="css/login.css" />
 <title>Hotel Boa Viagem Login</title>
 </head>
-<body>
+<body background="img/fundoHotel.jpg">
 	
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
