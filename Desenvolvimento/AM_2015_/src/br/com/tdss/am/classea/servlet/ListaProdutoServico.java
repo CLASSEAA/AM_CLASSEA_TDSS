@@ -13,7 +13,7 @@ import br.com.tdss.am.classea.bo.ProdutoServicoBO;
 import br.com.tdss.am.classea.entity.ProdutoServico;
 
 /**
- * Servlet implementation class ListaProdutoServico
+ * Servlet responsavel pela Listagem de {@link ProdutoServico}
  */
 @WebServlet("/ListaProdutoServico")
 public class ListaProdutoServico extends HttpServlet {

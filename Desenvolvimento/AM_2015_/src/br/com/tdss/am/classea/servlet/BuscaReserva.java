@@ -12,7 +12,7 @@ import br.com.tdss.am.classea.bo.ReservaBO;
 import br.com.tdss.am.classea.entity.Reserva;
 
 /**
- * Servlet implementation class BuscaReserva
+ * Servlet responsavel pela busca de {@link Reserva} utilizando {@link ReservaBO} para validar as regras de negócio
  */
 @WebServlet("/BuscaReserva")
 public class BuscaReserva extends HttpServlet {

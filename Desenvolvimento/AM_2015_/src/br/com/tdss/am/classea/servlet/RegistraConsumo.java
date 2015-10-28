@@ -18,7 +18,7 @@ import br.com.tdss.am.classea.entity.ProdutoServico;
 import br.com.tdss.am.classea.utils.Util;
 
 /**
- * Servlet implementation class RegistraConsumo
+ * Servlet responsavel por Registrar {@link Consumo}
  */
 @WebServlet("/RegistraConsumo")
 public class RegistraConsumo extends HttpServlet {

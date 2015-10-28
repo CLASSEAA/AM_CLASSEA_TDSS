@@ -16,7 +16,7 @@ import br.com.tdss.am.classea.entity.Reserva;
 import br.com.tdss.am.classea.utils.Util;
 
 /**
- * Servlet implementation class RegistraHospedagem
+ * Servlet responsavel por Registrar {@link Hospedagem} 
  */
 @WebServlet("/RegistraHospedagem")
 public class RegistraHospedagem extends HttpServlet {

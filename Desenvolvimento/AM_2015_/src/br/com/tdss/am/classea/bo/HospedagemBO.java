@@ -7,8 +7,16 @@ import br.com.tdss.am.classea.entity.Hospedagem;
 import br.com.tdss.am.classea.entity.Quarto;
 import br.com.tdss.am.classea.utils.Util;
 
-public class HospedagemBO {
+/**
+ * Business object - Hospedagem
+ * */
 
+public class HospedagemBO {
+	
+	/**
+	 * Metodo para incluir {@link Hospedagem}
+	 * 
+	 * */
 	public void incluirHospedagem(Hospedagem hospedagem, Funcionario funcionario) throws Exception {
 
 		if (hospedagem.getReserva() == null) {
@@ -24,12 +32,20 @@ public class HospedagemBO {
 		hospedagemDao.incluirHospedagem(hospedagem, funcionario);
 	}
 
+	/**
+	 * Metodo para buscar {@link Hospedagem} através do id
+	 * @return {@link Hospedagem}
+	 * */
 	public Hospedagem buscarHospedagem(int idHospedagem) throws Exception {
 		HospedagemDao hospedagemDao = DaoFactory.getHospedagemDao();
 		Hospedagem hospedagem = hospedagemDao.buscarHospedagem(idHospedagem);
 		return hospedagem;
 	}
-
+	
+	/**
+	 * Metodo para buscar {@link Hospedagem} através do {@link Quarto}
+	 * @return {@link Hospedagem}
+	 * */
 	public Hospedagem buscarHospedagem(Quarto quarto) throws Exception{
 		HospedagemDao hospedagemDao = DaoFactory.getHospedagemDao();
 		Hospedagem hospedagem = hospedagemDao.buscarHospedagem(quarto);

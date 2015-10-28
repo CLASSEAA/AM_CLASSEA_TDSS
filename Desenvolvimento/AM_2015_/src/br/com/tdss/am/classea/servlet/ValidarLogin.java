@@ -13,7 +13,7 @@ import br.com.tdss.am.classea.dao.impl.OracleFuncionarioDAO;
 import br.com.tdss.am.classea.entity.Funcionario;
 
 /**
- * Servlet implementation class ValidarLogin
+ * Servlet responsavel por Validar Login
  */
 @WebServlet("/ValidarLogin")
 public class ValidarLogin extends HttpServlet {

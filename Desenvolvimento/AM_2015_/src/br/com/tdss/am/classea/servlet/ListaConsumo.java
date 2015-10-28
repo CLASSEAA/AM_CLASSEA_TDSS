@@ -14,7 +14,7 @@ import br.com.tdss.am.classea.entity.Consumo;
 import br.com.tdss.am.classea.entity.Hospedagem;
 
 /**
- * Servlet implementation class ListaConsumo
+ *	Servlet responsavel pelo retorno dos produtos consumidos em determinada {@link Hospedagem}
  */
 @WebServlet("/ListaConsumo")
 public class ListaConsumo extends HttpServlet {
