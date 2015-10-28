@@ -91,7 +91,7 @@ public class OracleConsumoDao implements ConsumoDao {
 							+ "INNER JOIN T_AM_CLA_HIST_PRECO HP "
 							+ "ON (PS.ID_TIPO_SERVICO = HP.ID_TIPO_SERVICO) "
 							+ "WHERE CS.ID_HOSPEDAGEM = ? "
-							+ "AND TO_CHAR(HP.DT_VALIDADE, 'YYYYMMDD') >= '20150131'");
+							+ "AND TO_CHAR(HP.DT_VALIDADE, 'YYYYMMDD') >= TO_CHAR(CS.DT_CONSUMO, 'YYYYMMDD')");
 
 			stmt.setInt(1, hospedagem.getIdHospedagem());
 			ResultSet rs = stmt.executeQuery();
