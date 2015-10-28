@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="AM_2015_">
+    <wb-module deploy-name="AM_TDSS_CLASSEA">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="AM_2015_"/>
-        <property name="java-output-path" value="/AM_2015_/build/classes"/>
+        <property name="java-output-path" value="/AM_TDSS_CLASSEA/build/classes"/>
+        <property name="context-root" value="AM_TDSS_CLASSEA"/>
     </wb-module>
 </project-modules>
