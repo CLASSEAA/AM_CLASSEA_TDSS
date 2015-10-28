@@ -12,7 +12,7 @@ import br.com.tdss.am.classea.utils.Util;
  * */
 
 public class HospedagemBO {
-	
+
 	/**
 	 * Metodo para incluir {@link Hospedagem}
 	 * 
@@ -26,14 +26,21 @@ public class HospedagemBO {
 		if (!Util.compararDatas(hospedagem.getDataEntrada(), hospedagem.getReserva().getDataInicio())) {
 			throw new Exception("A data de hospedagem excede o limite da reserva");
 		}
+		
+		try{
 		hospedagem.setDataEntrada(hospedagem.getDataEntrada().replace("/", ""));
 
 		HospedagemDao hospedagemDao = DaoFactory.getHospedagemDao();
-		hospedagemDao.incluirHospedagem(hospedagem, funcionario);
+		hospedagemDao.incluirHospedagem(hospedagem, funcionario);}
+		catch(Exception e){
+			e.printStackTrace();
+			throw new Exception("A reserva já está hospedada");
+		}
 	}
 
 	/**
 	 * Metodo para buscar {@link Hospedagem} através do id
+	 * 
 	 * @return {@link Hospedagem}
 	 * */
 	public Hospedagem buscarHospedagem(int idHospedagem) throws Exception {
@@ -41,12 +48,13 @@ public class HospedagemBO {
 		Hospedagem hospedagem = hospedagemDao.buscarHospedagem(idHospedagem);
 		return hospedagem;
 	}
-	
+
 	/**
 	 * Metodo para buscar {@link Hospedagem} através do {@link Quarto}
+	 * 
 	 * @return {@link Hospedagem}
 	 * */
-	public Hospedagem buscarHospedagem(Quarto quarto) throws Exception{
+	public Hospedagem buscarHospedagem(Quarto quarto) throws Exception {
 		HospedagemDao hospedagemDao = DaoFactory.getHospedagemDao();
 		Hospedagem hospedagem = hospedagemDao.buscarHospedagem(quarto);
 		return hospedagem;

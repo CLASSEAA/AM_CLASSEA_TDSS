@@ -17,7 +17,7 @@ public class ReservaBO {
 	public Reserva buscarReserva(Reserva reserva) throws Exception{
 		String id = Integer.toString(reserva.getIdReserva());
 		if(id == null){
-			return null;
+			throw new Exception("Reserva sem id");
 		}else{
 		ReservaDAO reservaDAO = DaoFactory.getReservaDAO();
 		Reserva r = reservaDAO.buscarReservar(reserva);

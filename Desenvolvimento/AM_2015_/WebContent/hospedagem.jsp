@@ -171,6 +171,7 @@
 		    </div>
 		       <div class="modal-body">
 	        	  <p>Favor verificar os campos e ver se estão validos.</p>
+	        	  <p>${erro}</p>
 	        </div>
 	        <div class="modal-footer">
 	          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>

@@ -58,6 +58,7 @@ public class RegistraHospedagem extends HttpServlet {
 			getServletContext().setAttribute("hospedagens", h);
 			response.sendRedirect("hospedagem.jsp?hospedagem=true");
 		} catch (Exception e) {
+			getServletContext().setAttribute("erro", e.getMessage());
 			response.sendRedirect("hospedagem.jsp?hospedagem=false");
 			e.printStackTrace();
 		}
